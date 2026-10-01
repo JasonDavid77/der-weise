@@ -2,7 +2,7 @@
 
 Der Weise, von Jason Lau-Christen. Versionen nach dem Schema Hauptversion.Neuerung.Korrektur.
 
-## 4.0.0 (erste öffentliche Version, unveröffentlicht)
+## 4.0.0 (erste öffentliche Version, 01.10.2026)
 
 Der Weise wird ein Plugin für Claude Code, das jede Person für sich einrichtet.
 

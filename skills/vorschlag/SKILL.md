@@ -84,7 +84,7 @@ Den Link aus der gespeicherten Datei bauen und oeffnen (Windows, PowerShell):
 ```
 $datei = "<WEISE_HOME>\vorschlaege\<JJJJ-MM-TT-kurz>.md"
 $z = Get-Content -Encoding UTF8 $datei
-$titel = $z[0] -replace '^#\s*', ''
+$titel = "Vorschlag: " + ($z[0] -replace '^#\s*', '')
 $text = ($z | Select-Object -Skip 2) -join "`n"
 $basis = "https://github.com/JasonDavid77/der-weise/issues/new?template=vorschlag.md&title=" + [uri]::EscapeDataString($titel)
 $link = $basis + "&body=" + [uri]::EscapeDataString($text)
