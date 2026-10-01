@@ -1,0 +1,8 @@
+# Pakete fuer den Weisen (Speicher, Suche, Abfrage-Karten).
+# Installation IMMER zusammen mit den festen Versionen:
+#   python -m pip install -r requirements.txt -c constraints.txt
+# torch kommt fuer Windows von PyPI als reine CPU-Fassung (keine Grafikkarte noetig).
+chromadb==1.5.9
+sentence-transformers==5.5.1
+torch==2.12.1
+fsrs==6.3.1

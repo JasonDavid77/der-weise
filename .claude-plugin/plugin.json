@@ -1,0 +1,21 @@
+{
+  "name": "weise",
+  "displayName": "Der Weise",
+  "version": "4.0.0",
+  "description": "A tutor that teaches while you work: learn a tool or field on your real project, with explanations from scratch, a growing learning path and recall cards. Files stay local.",
+  "author": {
+    "name": "Jason Lau-Christen"
+  },
+  "homepage": "https://github.com/JasonDavid77/der-weise#readme",
+  "repository": "https://github.com/JasonDavid77/der-weise",
+  "license": "MIT",
+  "keywords": [
+    "tutor",
+    "learning",
+    "learning-on-the-job",
+    "spaced-repetition",
+    "recall-cards",
+    "legal-tech",
+    "german"
+  ]
+}
