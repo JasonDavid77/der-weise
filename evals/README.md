@@ -8,7 +8,7 @@ https://code.claude.com/docs/en/plugin-evals). Jeder Lauf ist ein echter Modella
 | Ordner | Fälle | Prüft |
 |---|---|---|
 | `trigger/` | 18 | `lernen`, `thema` und `vorschlag` springen an: je Skill drei Sätze auf Deutsch, drei auf Englisch |
-| `no-trigger/` | 8 | `einrichten` springt nie von selbst an (2 Fälle); bei 6 fremden Anfragen springt kein Skill des Weisen an, darunter Beinahe-Treffer |
+| `no-trigger/` | 10 | `einrichten` und `paket` springen nie von selbst an (je 2 Fälle); bei 6 fremden Anfragen springt kein Skill des Weisen an, darunter Beinahe-Treffer |
 | `behavior/` | 3 | `lernen-board-betriebsart`: das Board zeigt die Betriebsart; `thema-themenliste-vor-prompts`: erst die Themenliste zur Freigabe, dann Recherche-Prompts; `vorschlag-text-vor-link`: erst der Text zur Freigabe, dann der Link |
 
 Alle Themen und Vorschläge sind erfunden und tragen "TEST". Es gibt nur kostenlose Prüfer
@@ -35,7 +35,7 @@ claude plugin eval . --case lernen-board-betriebsart --scaffold --runs 1 --ablat
   Freigabe" bestehen ohne Aussage.
 - `Bash` oder `PowerShell` nicht freigeben: Unter nativem Windows fehlt die Sandbox, solche Läufe
   werden abgewiesen.
-- Umfang der ganzen Suite: 29 Fälle, je 3 Läufe mit und 3 ohne Plugin, also 174 Läufe. Mit
+- Umfang der ganzen Suite: 31 Fälle, je 3 Läufe mit und 3 ohne Plugin, also 186 Läufe. Mit
   `-j 4` laufen vier gleichzeitig.
 
 ## Ergebnisse lesen

@@ -61,7 +61,10 @@ THEMA: <thema> -- <Anlage | Arbeits-Session | Update>
 ## A. Neues Thema anlegen (nur mit Bestaetigung der Person)
 
 1. **Name klaeren:** kebab-case, Englisch (Ausnahme: Eigennamen). Vorschlagen,
-   die Person bestaetigt.
+   die Person bestaetigt. Vorher kurz pruefen, ob ein installiertes Wissenspaket
+   zum Thema passt: `${CLAUDE_PLUGIN_ROOT}/skills/paket/SKILL.md` als Datei lesen,
+   Abschnitt 1, Schritte 2 bis 4. Passt eines: `/weise:paket` anbieten, der Stoff
+   liegt dort schon vor (Datenregel 11). Nichts gefunden: still weiter.
 2. **Lernziel zuerst (Working Backwards):** "Was wollen Sie KOENNEN, wenn das
    Thema gefestigt ist?" -- 1-3 Punkte von der Person. Dabei auch fragen: "Gibt es
    einen konkreten Fall / ein Projekt dafuer?" -> Anker vor-erfassen:
@@ -139,7 +142,8 @@ THEMA: <thema> -- <Anlage | Arbeits-Session | Update>
    kein Vertrag: Der Weise erweitert ihn, wenn das Projekt waechst.
 7c. **Konsistenz-End-Check (Pflicht):** Bevor der Bericht rausgeht, Zahlen und
    Status im `_index.md` und in `_themen.md` GEGEN die Dateien pruefen:
-   Konzept-Zahl = Zeilen in concepts.md; Quellen-Zahl = Dateien in sources/;
+   Konzept-Zahl = Zeilen in concepts.md; Quellen-Zahl = Dateien in sources/
+   (ohne `readme.md`; ein Wissenspaket unter `sources/paket/` zaehlt als eine Quelle);
    Status stimmt ueberall ueberein.
 8. **ANLAGE-BERICHT (Pflicht-Abschluss, Format s. Abschnitt D)** -- belegt auch den
    Quellen-Scan: ueber welche Werkzeuge, Treffer/Fehlanzeige.
@@ -215,6 +219,9 @@ Trigger: Frische-Pitch des Weisen mit GO der Person -- oder die Person direkt
    (b) teil-ueberholte redigieren: Passage durch `[ueberholt YYYY-MM-DD ->
    updates.md]` ersetzen. Faustregel: mehr als ein Drittel ueberholt oder
    Kernthese gekippt -> ganz archivieren. EIN GO der Person, dann ausfuehren.
+   Ausnahme `sources/paket/` (Datenregel 11): dort nichts archivieren oder
+   redigieren; Ueberholtes steht nur in `updates.md`, das naechste Paket bringt
+   den neuen Stand.
 6. **Neu speichern** (A.7, nur VOLL) raeumt veraltete Abschnitte automatisch ab; "Letzter
    Ingest" im Deckblatt in beiden Betriebsarten auf heute setzen. **UPDATE-BERICHT** = ANLAGE-BERICHT + 1
    Zeile: "N Aussagen ueberholt -> updates.md | M Quellen archiviert/redigiert".

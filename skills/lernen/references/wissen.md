@@ -42,6 +42,8 @@ Werkzeug etwas: ehrlich sagen + Luecke nach questions.md.
   "Brueckentext von mir" (ehrlich herabgestuft). Im Tempo-Modus traegt die
   Lernzeile diese Angabe.
 - **"Woher?"-Recht:** Datei nennen -- ODER Live-Stempel -- ODER herabstufen.
+- **Wissenspaket:** Treffer aus `sources/paket/` vor dem Lehren gegen `updates.md`
+  halten; dort Ueberholtes gilt nicht mehr (Datenregel 11).
 - **Live wird Erkenntnis:** Ist ein Live-Fakt festhaltenswert -> mit Datum nach
   `sources/`, VOLL zusaetzlich in den Speicher (Projekt-Nachzug bzw. Skill `thema`
   Teil E).

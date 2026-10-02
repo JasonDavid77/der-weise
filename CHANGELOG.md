@@ -2,6 +2,21 @@
 
 Der Weise, von Jason Lau-Christen. Versionen nach dem Schema Hauptversion.Neuerung.Korrektur.
 
+## 4.1.0 (Wissenspakete, 01.10.2026)
+
+- **Neuer Befehl `/weise:paket`:** spielt ein Wissenspaket als Lernthema ein. Ein Wissenspaket ist ein eigenes Plugin mit fertigem Lernmaterial, ohne Lernziel und ohne Lernstand. Der Weise prüft jede Datei per Prüfsumme, fragt nach Ihrem Lernziel und legt das Thema an, bei VOLL auch im Speicher.
+- **Updates von Paketen** tauschen nur das Paketmaterial im Ordner `sources/paket/` und legen den alten Stand ins Archiv. Dateien, die Sie dort selbst geändert haben, kopiert der Weise vorher in den Eingang des Themas.
+- **Pakete als Ordner:** Liegt ein Paket als Git-Klon vor, geht `/weise:paket <ordner>`; Klone gehören nach `%USERPROFILE%\weise\pakete\`.
+- **Frische-Check:** Bei Themen aus einem Paket zählt das Datum des Materials (Zeile „Paketstand“), und der Weise weist zuerst auf ein neueres Paket hin.
+- **Neues Lernthema:** Passt ein installiertes Paket zum Thema, bietet der Weise `/weise:paket` an.
+- **README:** Klickweg der Desktop-App im Schnellstart, Abschnitt „Wissenspakete“.
+
+### Woran Sie es merken
+
+- Es gibt den Befehl `/weise:paket`.
+- Bei „Neues Lernthema: …“ fragt der Weise nach, wenn ein passendes Paket installiert ist.
+- Themen aus einem Paket haben im Deckblatt die Zeile „Paketstand“ und den Ordner `sources/paket/`.
+
 ## 4.0.0 (erste öffentliche Version, 01.10.2026)
 
 Der Weise wird ein Plugin für Claude Code, das jede Person für sich einrichtet.

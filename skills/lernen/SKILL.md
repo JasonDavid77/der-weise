@@ -93,7 +93,8 @@ Themas (Themen-Modus) bzw. im ganzen `werkzeug-register.md` des Werkraums
    Schwelle gerissen (hoch = 4 Wochen | mittel = 3 Monate | niedrig = 12 Monate)
    -> VOR dem Unterricht ein 1-Satz-Pitch: "Stand ist vom <Datum>. Erst ein
    Update?" Bei GO: Skill `thema` Teil E, danach Unterricht. Immer nur Pitch, nie
-   Auto-Recherche.
+   Auto-Recherche. Hat das Deckblatt eine Zeile "Paketstand", nennt der Pitch
+   zuerst den Weg ueber ein neueres Paket (`/weise:paket`, Datenregel 11).
 1c. **Stand-Pruefung der Karten (vor jedem Recall, Pflicht):** Fuer jede faellige
    Karte pruefen, ob Frage und erwartete Antwort noch zum Ist-Stand passen:
    `updates.md`, Stand-Zeilen lebender Quellen, der aktuelle Stand des

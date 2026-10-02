@@ -8,6 +8,10 @@ Der Weise works in the Claude desktop app under the "Code" tab or in Claude Code
 
 ## Quick start
 
+**In the Claude desktop app by clicking:** your profile at the bottom left, then **Settings**, then **Plugins** (in the German interface under "Anweisungen"). Enter the repository `JasonDavid77/claude-plugins` there, then click the plus sign next to Der Weise. Continue with step 3.
+
+**Or by command** (desktop app in the "Code" tab, or the terminal):
+
 1. Add the catalog. Type into the Claude Code input:
 
    ```
@@ -30,7 +34,7 @@ Der Weise works in the Claude desktop app under the "Code" tab or in Claude Code
 
    Der Weise asks, in conversation, for its name, the form of address (formal "Sie" or informal "du" in German), signs and totems, your name, how you want research done and the folder for your learning topics. If your own agent already has a name, it suggests that one: "Max" becomes "Max der Weise". Then it suggests the first step, for example "New learning topic: …".
 
-## The four skills
+## The five skills
 
 | Command | What it does |
 |---|---|
@@ -38,8 +42,19 @@ Der Weise works in the Claude desktop app under the "Code" tab or in Claude Code
 | `/weise:thema` | Creates a new learning topic or updates an existing one, starting with your learning goal. |
 | `/weise:lernen` | Runs a learning session: due recall cards first, then the next concept, explained and built right into your project. |
 | `/weise:vorschlag` | Turns your improvement idea into a proposal and, after your approval, opens it as a public issue in your browser. |
+| `/weise:paket` | Imports a knowledge pack as a learning topic or updates it (see below); runs only when you type the command. |
 
 You don't need to remember the commands. Phrases such as "new learning topic: …", "let's keep learning" or "quiz me" are enough.
+
+## Knowledge packs
+
+A knowledge pack is ready-made learning material on one topic, for example the guides of a tool as text. It is a small plugin of its own without commands and holds only data: the texts and a list with one checksum per file. It contains no learning goal, no progress and no recall cards; those are created on your side. If a pack does bring commands, hooks or a server, Der Weise does not import it. Only install packs from catalogs you trust. The pack format is described in [docs/wissenspaket.md](docs/wissenspaket.md).
+
+1. Install the pack like any plugin, from the catalog that lists it.
+2. Run `/weise:paket`. Der Weise finds the installed packs, checks every file, asks for your learning goal and creates the topic in your topics folder, in FULL mode also in the store. If a pack is a folder (for example a Git clone), pass the folder: `/weise:paket <folder>`.
+3. When a new pack version arrives, run `/weise:paket` again. Der Weise replaces only the pack material in `sources/paket/` and archives the old state. Your learning goal, notes, cards and your own sources stay.
+
+Packs from a private catalog need read access to its repository. Claude Code cannot ask for a password while loading; the sign-in must already be stored in Git (easiest: clone the repository once yourself).
 
 ## An example
 
@@ -109,6 +124,7 @@ To switch to FULL later, run `/weise:einrichten` again. Your topics and recall c
 - **No hooks, no MCP server, no background service.** Der Weise runs only when you call it, by command or with a phrase like "let's keep learning".
 - **It changes Claude settings only after asking:** `/weise:einrichten` offers to add the folder `%USERPROFILE%\weise` (and your topics folder, if it lives elsewhere) as an additional working directory in `%USERPROFILE%\.claude\settings.json`, so Der Weise can read there without prompts. You see the change first. If it finds older copies of Der Weise under `%USERPROFILE%\.claude\skills`, it moves them to the backup folder after you agree. Nothing is deleted.
 - **Web search only if you choose it:** with the setting "websuche" Der Weise searches the web itself, and only after you have approved the topic list. With "werkzeug" it writes research prompts for your own research tool and only searches itself if you explicitly ask it to.
+- **Knowledge packs are only read:** `/weise:paket` reads the list of your installed plugins (`%USERPROFILE%\.claude\plugins\installed_plugins.json`, or else the plugin folder) and the folders of the knowledge packs, checks the files with PowerShell and copies them into your topics folder. On "new learning topic", `/weise:thema` looks in the same places for a matching installed pack. Der Weise writes nothing into plugin folders.
 - **Proposals only after your approval:** `/weise:vorschlag` removes names, paths and confidential details, shows you the final text and then opens a prefilled issue in your browser. You click submit yourself. Issues on GitHub are public.
 - **The conversation itself** is processed by Claude like in any Claude Code session, including the files Der Weise reads for it. So keep confidential content out of your learning topics: no case files, client or customer data. Der Weise works with learning material, guides and invented practice cases.
 
@@ -128,6 +144,8 @@ Changes are listed in the [CHANGELOG](CHANGELOG.md) (German).
 /plugin uninstall weise@jason-lau-christen
 /plugin marketplace remove jason-lau-christen
 ```
+
+Knowledge packs are plugins of their own and stay installed. Remove them with `/plugin uninstall <pack>@<catalog>`; imported topics stay in your topics folder.
 
 **Your data is kept.** Topics, profile and technology live in `%USERPROFILE%\weise` (or in the topics folder you chose), and Claude Code deletes nothing there. To remove everything:
 

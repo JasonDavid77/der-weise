@@ -8,6 +8,10 @@ Der Weise arbeitet in der Claude-Desktop-App im Reiter „Code“ oder in Claude
 
 ## Schnellstart
 
+**In der Claude-Desktop-App per Klick:** unten links auf Ihr Profil, dann **Einstellungen**, im Fenster unter **Anweisungen** auf **Plugins**. Dort das Repo `JasonDavid77/claude-plugins` angeben, dann beim Weisen auf das Plus-Zeichen. Weiter mit Schritt 3.
+
+**Oder per Befehl** (Desktop-App im Reiter „Code“ oder Terminal):
+
 1. Katalog hinzufügen. Geben Sie im Eingabefeld von Claude Code ein:
 
    ```
@@ -30,7 +34,7 @@ Der Weise arbeitet in der Claude-Desktop-App im Reiter „Code“ oder in Claude
 
    Der Weise fragt im Gespräch nach seinem Namen, nach der Anrede (Sie oder du), nach Zeichen und Totems, nach Ihrem Namen, nach Ihrem Weg für Recherchen und nach dem Ordner für Ihre Lernthemen. Hat Ihr eigener Agent schon einen Namen, schlägt er diesen vor: Aus „Max“ wird „Max der Weise“. Danach schlägt er den ersten Schritt vor, etwa „Neues Lernthema: …“.
 
-## Die vier Skills
+## Die fünf Skills
 
 | Befehl | Was er tut |
 |---|---|
@@ -38,8 +42,19 @@ Der Weise arbeitet in der Claude-Desktop-App im Reiter „Code“ oder in Claude
 | `/weise:thema` | Legt ein neues Lernthema an oder aktualisiert ein bestehendes, beginnend mit Ihrem Lernziel. |
 | `/weise:lernen` | Führt eine Lern-Session: erst fällige Abfrage-Karten, dann das nächste Konzept, erklärt und gleich an Ihrem Projekt gebaut. |
 | `/weise:vorschlag` | Macht aus Ihrem Verbesserungswunsch einen Vorschlag und öffnet ihn nach Ihrer Freigabe als öffentliches Issue im Browser. |
+| `/weise:paket` | Spielt ein Wissenspaket als Lernthema ein oder aktualisiert es (siehe unten); startet nur, wenn Sie den Befehl eingeben. |
 
 Sie müssen die Befehle nicht auswendig kennen. Sätze wie „Neues Lernthema: …“, „Lern-Session“, „lernen wir weiter“ oder „frag mich ab“ genügen.
+
+## Wissenspakete
+
+Ein Wissenspaket ist fertiges Lernmaterial zu einem Thema, zum Beispiel die Anleitungen eines Werkzeugs als Text. Es ist ein eigenes kleines Plugin ohne Befehle und enthält nur Daten: die Texte und eine Liste mit einer Prüfsumme je Datei. Lernziel, Lernstand und Abfrage-Karten enthält es nicht, die entstehen bei Ihnen. Bringt ein Paket doch Befehle, Hooks oder einen Server mit, spielt der Weise es nicht ein. Installieren Sie Pakete nur aus Katalogen, denen Sie vertrauen. Wie ein Paket aufgebaut ist, steht in [docs/wissenspaket.md](docs/wissenspaket.md).
+
+1. Paket installieren wie jedes Plugin, über den Katalog, in dem es steht.
+2. `/weise:paket` aufrufen. Der Weise findet die installierten Pakete, prüft jede Datei, fragt nach Ihrem Lernziel und legt das Thema in Ihrem Themenordner an, bei VOLL auch im Speicher. Liegt ein Paket als Ordner vor (etwa als Git-Klon), geben Sie den Ordner an: `/weise:paket <ordner>`.
+3. Kommt eine neue Paketversion, rufen Sie `/weise:paket` wieder auf. Der Weise tauscht nur das Paketmaterial im Ordner `sources/paket/` und legt den alten Stand ins Archiv. Ihr Lernziel, Ihre Notizen, Ihre Karten und Ihre eigenen Quellen bleiben.
+
+Pakete aus einem privaten Katalog brauchen Lesezugriff auf dessen Repo. Claude Code kann beim Laden nicht nach einem Passwort fragen; die Anmeldung muss vorher in Git gespeichert sein (am einfachsten: das Repo einmal selbst klonen).
 
 ## Ein Beispiel
 
@@ -107,6 +122,7 @@ Wechseln Sie später auf VOLL, rufen Sie `/weise:einrichten` erneut auf. Ihre Th
 - **Keine Hooks, kein MCP-Server, kein Hintergrunddienst.** Der Weise läuft nur, wenn Sie ihn aufrufen, per Befehl oder mit einem Satz wie „Lern-Session“.
 - **Claude-Einstellungen ändert er nur nach Rückfrage:** `/weise:einrichten` bietet an, den Ordner `%USERPROFILE%\weise` (und Ihren Themenordner, falls er woanders liegt) als zusätzlichen Arbeitsordner in `%USERPROFILE%\.claude\settings.json` einzutragen, damit der Weise dort ohne Rückfragen lesen kann. Die Änderung sehen Sie vorher. Findet er ältere Kopien des Weisen unter `%USERPROFILE%\.claude\skills`, verschiebt er sie nach Ihrer Zustimmung in die Sicherung. Gelöscht wird nichts.
 - **Websuche nur, wenn Sie das wählen:** Mit der Einstellung „websuche“ sucht der Weise selbst im Internet, und zwar erst, wenn Sie die Themenliste freigegeben haben. Mit „werkzeug“ schreibt er Rechercheaufträge für Ihr eigenes Recherche-Werkzeug und sucht nur dann selbst, wenn Sie ihn ausdrücklich darum bitten.
+- **Wissenspakete liest er nur:** `/weise:paket` liest die Liste Ihrer installierten Plugins (`%USERPROFILE%\.claude\plugins\installed_plugins.json`, ersatzweise den Plugin-Ordner) und die Ordner der Wissenspakete, prüft die Dateien per PowerShell und kopiert sie in Ihren Themenordner. Bei „Neues Lernthema“ sieht `/weise:thema` an denselben Stellen nach, ob ein passendes Paket installiert ist. In die Plugin-Ordner schreibt der Weise nichts.
 - **Vorschläge nur nach Ihrer Freigabe:** `/weise:vorschlag` entfernt Namen, Pfade und vertrauliche Angaben, zeigt Ihnen den fertigen Text und öffnet dann ein vorausgefülltes Issue im Browser. Abschicken tun Sie selbst. Issues auf GitHub sind öffentlich.
 - **Das Gespräch selbst** verarbeitet Claude wie in jeder Claude-Code-Sitzung, einschließlich der Dateien, die der Weise dafür liest. Legen Sie deshalb keine vertraulichen Inhalte in Ihre Lernthemen, also keine Akten, Mandats- oder Kundendaten. Der Weise arbeitet mit Lernmaterial, Anleitungen und erfundenen Übungsfällen.
 
@@ -126,6 +142,8 @@ Was sich geändert hat, steht im [CHANGELOG](CHANGELOG.md).
 /plugin uninstall weise@jason-lau-christen
 /plugin marketplace remove jason-lau-christen
 ```
+
+Wissenspakete sind eigene Plugins und bleiben dabei installiert. Entfernen mit `/plugin uninstall <paket>@<katalog>`; die eingespielten Themen bleiben im Themenordner.
 
 **Ihre Daten bleiben dabei erhalten.** Lernthemen, Profil und Technik liegen in `%USERPROFILE%\weise` (bzw. in Ihrem gewählten Themenordner), und dort löscht Claude Code nichts. Wenn Sie alles entfernen möchten:
 

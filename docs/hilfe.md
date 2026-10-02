@@ -26,6 +26,18 @@ Grundregel bei jedem Fehler: **Nichts umgehen.** Stoppt ein Schutzprogramm oder 
 | Das Board zeigt „OHNE PYTHON“, obwohl VOLL eingerichtet ist | Die Python-Umgebung fehlt unter `%USERPROFILE%\weise\venv`, oder `WEISE_HOME` zeigt woandershin | `/weise:einrichten` aufrufen |
 | Ein Skript meldet mitten in der Sitzung einen Fehler | Speicher, Modell oder Paket nicht in Ordnung | Der Weise zeigt die Meldung wörtlich und macht für diese Sitzung mit der Stichwortsuche weiter. Danach `/weise:einrichten` aufrufen. |
 
+### Wissenspakete (`/weise:paket`)
+
+| Sie sehen … | Wahrscheinliche Ursache | Was Sie tun |
+|---|---|---|
+| „Kein Wissenspaket gefunden“ | Das Paket ist nicht installiert, oder die Sitzung lief schon vor der Installation | Paket über seinen Katalog installieren, neue Sitzung. Liegt das Paket als Ordner vor: `/weise:paket <ordner>` |
+| Ein privater Katalog lässt sich nicht hinzufügen („Repository not found“, Anmeldefehler) | Claude Code kann beim Laden nicht nach der Anmeldung fragen, oder Git hat eine alte Anmeldung gespeichert | Das Repo einmal selbst klonen (`git clone <url>`); Git fragt dann nach der Anmeldung und speichert sie. Ist eine alte Anmeldung gespeichert, diese vorher in der Windows-Anmeldeinformationsverwaltung entfernen. Danach den Katalog erneut hinzufügen, oder `/weise:paket <klon-ordner>` |
+| „abweichend“ oder „fehlt“ bei der Prüfung | Datei beschädigt, unvollständig geladen oder verändert | Nichts kopieren lassen. Paket neu installieren bzw. den Klon neu holen, dann wieder `/weise:paket` |
+| „fehlt“ bei vielen Dateien mit langen Namen, obwohl sie da sind | Der Pfad ist länger als 260 Zeichen, das liest Windows PowerShell nicht | Einen kürzeren Themenordner wählen (`/weise:einrichten`) oder den Klon in einen kürzeren Ordner legen |
+| Fast alle Dateien „abweichend“, gleich nach Installation oder Klon | Git hat beim Herunterladen die Zeilenenden umgestellt; dem Paket-Repo fehlt die Datei `.gitattributes` mit `* -text` | Den Herausgeber des Pakets darauf hinweisen (Format: [wissenspaket.md](wissenspaket.md)). Nichts umstellen lassen, bis das Paket korrigiert ist |
+| „Den Themenordner gibt es schon“ | Ein Thema mit diesem Namen liegt im Themenordner, ohne dieses Paket | Der Weise überschreibt nichts. Wählen Sie einen anderen Namen oder spielen Sie das Paket in das bestehende Thema ein (nur wenn dort noch kein anderes Paket liegt) |
+| „Kein reines Wissenspaket“ | Das Paket bringt Befehle, Hooks oder einen Server mit | Der Weise spielt nur Daten ein. Prüfen Sie, woher das Paket stammt |
+
 ### Einrichtung VOLL (Windows)
 
 | Sie sehen … | Wahrscheinliche Ursache | Was Sie tun |
