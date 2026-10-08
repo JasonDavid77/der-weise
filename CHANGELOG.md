@@ -2,6 +2,19 @@
 
 Der Weise, von Jason Lau-Christen. Versionen nach dem Schema Hauptversion.Neuerung.Korrektur.
 
+## 4.2.0 (08.10.2026)
+
+- **Recherche-Aufträge mit Nummer:** Jeder Auftrag heißt `R<n>-<Datum>-<Thema>.md`. Die Nummer läuft über das ganze Thema fort, das Datum zeigt den Stand.
+- **Übergabe als Ordner statt als Text:** Der Weise wiederholt die Prompts nicht mehr im Gespräch. Er nennt Ordner und Dateien, öffnet den Ordner im Dateimanager und gibt eine kurze Anleitung.
+- **Übersicht:** `auftraege/readme.md` führt je Auftrag Thema, Zweck, Datum, Ergebnis und Stand (offen, zurück, eingearbeitet).
+- **Rücklauf unter der Nummer:** Ihr Ergebnis legen Sie als `R<n>` in den Ordner `eingang`, am besten als Markdown oder Text. Zu Beginn der nächsten Session ordnet der Weise es zu, legt es als Quelle ab und arbeitet es sofort in die Synthese ein, mit Verweis auf die Nummer. Überholtes wandert in die Änderungsliste.
+- **Recherche-Ergebnisse im Überblick:** Die Synthese hat einen Abschnitt mit einer Zeile je Auftrag.
+
+### Woran Sie es merken
+
+- Nach der Freigabe der Themenliste öffnet sich der Ordner mit `R1-…`, `R2-…`; im Gespräch steht nur die Anleitung.
+- Liegt `R2.md` im Eingang, sagt der Weise das zu Beginn der Session und arbeitet es ein; in der Übersicht steht R2 danach auf „eingearbeitet“.
+
 ## 4.1.1 (08.10.2026)
 
 - **Vorschläge ohne doppeltes Prüfen:** Ihre Freigabe im Gespräch ist der letzte Schritt. Ist die GitHub-Kommandozeile `gh` angemeldet, sendet der Weise den Vorschlag direkt und nennt den Link; vorher nennt er das Konto, unter dem das Issue erscheint. Sonst öffnet er das ausgefüllte Formular, und es bleibt ein Klick. „Nur speichern“ gibt es weiterhin.

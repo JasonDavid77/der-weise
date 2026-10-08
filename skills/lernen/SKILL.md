@@ -76,7 +76,8 @@ Speicher. almighty schaltet NUR den Filter aus, nicht den Lehr-Takt.)
 Liefert die Themen-Sicht gar nichts -> STOP, an den Skill `thema` verweisen
 (VOLL: `learn-store.py --thema <name>` muss erst gelaufen sein; OHNE PYTHON:
 das Thema braucht eigenen Stoff -- mindestens eine Datei in `sources/` ausser
-`readme.md` oder eine `synthesis.md`, die mehr enthaelt als die Vorlage).
+`readme.md` oder eine `synthesis.md`, die mehr enthaelt als die Vorlage; liegt
+Unverarbeitetes in `eingang/`, zuerst Schritt 1a).
 
 **Dazu Live-Werkzeuge:** fuer volatile Fakten die in der Verknuepfungen-Zeile des
 Themas (Themen-Modus) bzw. im ganzen `werkzeug-register.md` des Werkraums
@@ -89,6 +90,9 @@ Themas (Themen-Modus) bzw. im ganzen `werkzeug-register.md` des Werkraums
    Bedienkarte `ui-observed.md` lesen -- alle DIREKT als Datei, nicht ueber den
    Speicher (sie sind nicht gespeichert, s. `references/wissen.md`). Fehlt learner-state.md
    -> aus der Vorlage (`references/karten.md`) anlegen.
+1a. **Eingang pruefen:** Liegt in `eingang/` (alte Namen: Datenregel 7) etwas
+   Unverarbeitetes, vor dem Unterricht ansagen und einarbeiten: Ruecklauf nach
+   `${CLAUDE_PLUGIN_ROOT}/skills/thema/references/recherche.md`, Abschnitt 3.
 1b. **Frische-Check:** Deckblatt-Zeilen "Volatilitaet" + "Letzter Ingest" lesen,
    Frist nach Datenregel 12. Frist ueberschritten
    -> VOR dem Unterricht ein 1-Satz-Pitch: "Stand ist vom <Datum>. Erst ein
@@ -391,11 +395,9 @@ fuenf Minuten):
 3. **Recherche festhalten:** Was aus einer Recherche bleiben soll, kommt datiert
    nach `sources/`, in eigenen Worten in `synthesis.md`, danach (nur VOLL)
    `learn-store.py --thema <name>`. Volatiles bleibt live (`references/wissen.md`).
-   Recherchen selbst laufen nach Profil-Feld `recherche`, wie im Skill `thema`
-   A.5: erst den Bedarf besprechen, dann eine Themenliste zur Freigabe, dann je
-   Thema ein Prompt nach `auftraege/` fuer das Recherche-Werkzeug der Person
-   (`werkzeug`) bzw. eine eigene Suche (`websuche`). Bei `werkzeug` eine eigene
-   Websuche nur, wenn die Person es ausdruecklich sagt.
+   Recherchen selbst laufen wie im Skill `thema` A.5 (erst Bedarf, dann
+   Themenliste zur Freigabe); Auftrag, Uebergabe und Ruecklauf nach
+   `${CLAUDE_PLUGIN_ROOT}/skills/thema/references/recherche.md`.
 4. **Zeigen:** Board mit der Zeile "NEU IM LERNPFAD: K9 <Name> (kam mit
    <Anlass>)" und ein Satz, was das fuer die naechsten Schritte heisst.
 
@@ -467,11 +469,10 @@ Steht in `${CLAUDE_SKILL_DIR}/references/karten.md`: Aufbau von learner-state.md
 - ROADMAP-BOARD am Sessionstart UND nach jeder abgeschlossenen Etappe -- inkl.
   Pflicht-Scope-Zeile, Betriebsart und Modus.
 - Recall alter Konzepte bleibt strikt getrennt vom Erklaer-Fading des neuen.
-- **Recherche** laeuft nach Profil-Feld `recherche` (Skill `thema` A.5): erst
-  Bedarf besprechen, Themenliste von der Person freigeben lassen, dann je Thema
-  ein Prompt nach `auftraege/` fuer ihr Recherche-Werkzeug (`werkzeug`) bzw. eine
-  eigene Suche (`websuche`); bei `werkzeug` eigene Websuche nur auf ihre
-  ausdrueckliche Ansage. Live-Abfragen ueber verbundene Werkzeuge (z.B. eine offene Seite im
+- **Recherche** laeuft nach Profil-Feld `recherche`: erst Bedarf besprechen,
+  Themenliste von der Person freigeben lassen, dann nummerierte Auftraege
+  (`werkzeug`) bzw. eigene Suche (`websuche`); bei `werkzeug` eigene Websuche
+  nur auf ihre ausdrueckliche Ansage. Live-Abfragen ueber verbundene Werkzeuge (z.B. eine offene Seite im
   Browser lesen) bleiben erlaubt.
 - Session-Ende ohne questions.md- UND learner-state-Update (inkl. Deliverable-Spur
   und Parkplatz) ist keine Session. Citation-Selbstcheck ist Pflicht.
@@ -479,5 +480,6 @@ Steht in `${CLAUDE_SKILL_DIR}/references/karten.md`: Aufbau von learner-state.md
   Projekt-Nachzug. Uebungsfaelle sind erfunden; aus echten Akten steht hoechstens
   ein Verweis im Werkraum.
 - Der Weise legt keine neuen Themen an und baut keine Quellen-Korpora auf --
-  das ist der Skill `thema`. Eine Live-Abfrage fuer einen volatilen Fakt und der
-  Projekt-Nachzug im laufenden Thema sind dagegen erlaubt.
+  das ist der Skill `thema`. Eine Live-Abfrage fuer einen volatilen Fakt, der
+  Projekt-Nachzug im laufenden Thema und der Ruecklauf von Recherche-Ergebnissen
+  (1a) sind dagegen erlaubt.

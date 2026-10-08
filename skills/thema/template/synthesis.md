@@ -10,3 +10,8 @@
 ## Zusammenhaenge
 
 ## Was das fuer uns bedeutet
+
+## Recherche-Ergebnisse
+
+> Je Recherche-Auftrag eine Zeile: Nummer, Datum, Thema, ein Satz, worum es ging, Quelle, wo es
+> oben eingearbeitet ist. Die Aussagen selbst stehen nur oben, mit `[sources/<datei>] (R<n>)`.

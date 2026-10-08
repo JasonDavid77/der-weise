@@ -1,6 +1,8 @@
 # eingang/ -- Richtung: die Person -> der Weise
 
-Eingangspuffer: Antworten, Unterlagen, Links, Screenshots, Roh-Transkripte. Unbearbeitet ablegen,
-Dateiname egal -- Hauptsache es landet hier. Der Weise kuratiert von hier nach
-`../sources/` (sauber benannt) und arbeitet den Inhalt in synthesis.md +
-questions.md ein. Was hier liegt, gilt als noch nicht verarbeitet.
+Eingangspuffer: Ergebnisse von Recherche-Auftraegen, Unterlagen, Links, Screenshots,
+Roh-Transkripte. Ein Recherche-Ergebnis heisst wie sein Auftrag (`R1.md`, `R2.pdf`), am besten als
+Markdown oder Text; alles andere unbearbeitet ablegen, Dateiname egal. Der Weise sieht zu Beginn
+jeder Session nach, legt die Inhalte sauber benannt nach `../sources/` und arbeitet sie in
+synthesis.md + questions.md ein. Die Dateien bleiben hier liegen; verarbeitet ist, was in der
+Uebersicht `../auftraege/readme.md` in der Spalte "Eingangsdatei" steht.

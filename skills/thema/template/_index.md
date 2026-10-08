@@ -31,8 +31,8 @@ Wenn dieses Thema gefestigt ist, kann die Person:
 | recall-cards.json | Abfrage-Karten mit Python (FSRS), nur ueber learn-recall.py aendern | vom Weisen via --due |
 | recall-cards.md | Abfrage-Karten nach der Faecher-Regel; liegt sie vor, ist SIE die Kartendatei (auch mit Python) | vom Weisen je Session |
 | sources/ | Kuratiertes Rohmaterial (jede Datei hier eintragen) | nach Bedarf |
-| auftraege/ | der Weise -> die Person: Recherche-Auftraege, Bitten um Unterlagen | bei Uebergabe |
-| eingang/ | die Person -> der Weise: unbearbeiteter Eingang (Ergebnisse, Unterlagen) | bei Rueckgabe pruefen |
+| auftraege/ | der Weise -> die Person: nummerierte Recherche-Auftraege (Uebersicht in readme.md), Bitten um Unterlagen | bei Uebergabe |
+| eingang/ | die Person -> der Weise: Ergebnisse (unter der Nummer des Auftrags) und Unterlagen | zu Beginn jeder Session pruefen |
 | uebungen/ | Uebungsdokumente je Konzept (nicht gespeichert) | in der Uebung |
 
 ## Log

@@ -48,8 +48,8 @@ kommt ("Ihr Agent heisst Max, deshalb schlage ich 'Max der Weise' vor").
   `zeichen` nach dessen Regeln, `totems` false. "Ohne": `zeichen` leer, `totems` false.
 
 - **werkzeug:** "Fuer jedes Recherche-Thema schreibe ich einen fertigen Auftrag (Prompt) nach
-  `auftraege/`. Sie geben ihn in Ihr eigenes Recherche-Werkzeug und legen das Ergebnis nach
-  `eingang/`."
+  `auftraege/`, mit Nummer (R1, R2, ...). Sie geben ihn in Ihr eigenes Recherche-Werkzeug und legen
+  das Ergebnis unter derselben Nummer nach `eingang/`."
 - **websuche:** "Ich suche selbst im Netz, nachdem Sie die Liste der Recherche-Themen freigegeben
   haben."
 - **Werkraum:** voller Pfad; nicht in OneDrive oder einen anderen synchronisierten Ordner. Ein

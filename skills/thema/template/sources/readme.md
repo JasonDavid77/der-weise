@@ -2,7 +2,8 @@
 
 Finale Texte, Mitschriften, Berichte -- die Quelle der Wahrheit des Themas. Nur
 der Weise legt hier ab (aus eingang/ oder der eigenen Suche kuratiert, sauber benannt, mit Datum vorne:
-`YYYY-MM-DD-<slug>.md`). Jede Datei = Zeile im Doc-Index der `../_index.md` (ein Wissenspaket
+`YYYY-MM-DD-<slug>.md`; Ergebnisse eines Recherche-Auftrags mit dessen Nummer:
+`YYYY-MM-DD-r<n>-<slug>.md`). Jede Datei = Zeile im Doc-Index der `../_index.md` (ein Wissenspaket
 unter `paket/` = eine Zeile; diesen Ordner aendert nur `/weise:paket`).
 
 **Nach jeder Aenderung hier (nur mit Python):** `learn-store.py --thema <name>` ausfuehren, sonst

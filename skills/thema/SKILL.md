@@ -103,8 +103,10 @@ THEMA: <thema> -- <Anlage | Arbeits-Session | Update>
    wofuer (welches Lernziel, welcher Baustein). Die Person gibt sie frei, streicht
    oder ergaenzt.
    (4) Erst nach der Freigabe, je Thema: bei `werkzeug` ein eigener, kurzer
-   Prompt, je Prompt eine Datei `auftraege/YYYY-MM-DD-<thema>.md`, im Gespraech
-   als Codeblock; bei `websuche` eine eigene Suche.
+   Prompt als nummerierte Datei `auftraege/R<n>-YYYY-MM-DD-<kurz>.md`, mit
+   Zeile in der Uebersicht `auftraege/readme.md`; uebergeben wird der Ordner mit
+   kurzer Anleitung, der Prompt steht NICHT noch einmal im Gespraech. Alles
+   dazu in `${CLAUDE_SKILL_DIR}/references/recherche.md`. Bei `websuche` eine eigene Suche.
    Alternative: ohne Sweep starten. Bei `werkzeug` eine eigene Websuche nur, wenn
    die Person es fuer dieses Thema ausdruecklich sagt. Ergebnisse landen als
    datierte Textdateien in `sources/`.
@@ -156,7 +158,10 @@ THEMA: <thema> -- <Anlage | Arbeits-Session | Update>
    gestellte Karte in der Kartendatei des Themas fortschreiben
    (`${CLAUDE_PLUGIN_ROOT}/skills/lernen/references/karten.md`). (Volle
    Lern-Sessions fuehrt der Weise.)
-3. **Eingang:** `eingang/` (alte Namen: Datenregel 7) pruefen -> kuratieren nach
+3. **Eingang:** `eingang/` (alte Namen: Datenregel 7) pruefen. Ergebnisse von
+   Recherche-Auftraegen laufen nach `${CLAUDE_SKILL_DIR}/references/recherche.md`,
+   Abschnitt 3 (zuordnen, ablegen, sofort in die Synthese, Uebersicht
+   fortschreiben). Alles andere -> kuratieren nach
    `sources/` (sauber benannt, datiert) -> Zeile im Doc-Index der `_index.md`.
    PDFs, Word-Dateien und Mitschnitte VOR dem Ingest in .md/.txt ueberfuehren --
    learn-store.py nimmt nur .md/.txt und warnt laut bei uebersprungenen Dateien.
@@ -204,10 +209,11 @@ Trigger: Frische-Pitch des Weisen mit GO der Person -- oder die Person direkt
 ("Update <thema>", "Thema aktualisieren").
 
 1. **Recherche:** wie A.5 -- Bedarf besprechen, Themenliste von der Person
-   freigeben lassen, dann je Thema: bei `werkzeug` ein Prompt nach `auftraege/`
-   fuer das Recherche-Werkzeug der Person (eigene Websuche nur auf ihre
-   ausdrueckliche Ansage), Ergebnis -> `eingang/`; bei `websuche` eine eigene
-   Suche. Dann kuratieren als neue DATIERTE Datei nach `sources/` + Doc-Index.
+   freigeben lassen, dann je Thema: bei `werkzeug` ein nummerierter Auftrag nach
+   `auftraege/` (eigene Websuche nur auf ausdrueckliche Ansage der Person),
+   Ergebnis -> `eingang/`; bei `websuche` eine eigene Suche. Auftrag,
+   Uebergabe und Ruecklauf nach `${CLAUDE_SKILL_DIR}/references/recherche.md`;
+   die Quelle liegt danach datiert in `sources/`, mit Doc-Index-Zeile.
 2. **Delta-Diff:** Neues gegen `synthesis.md` halten; jede Aussage klassifizieren:
    bestaetigt / ergaenzt / UEBERHOLT.
 3. **Deltas sichern:** je ueberholter Aussage ein Eintrag in `updates.md`
