@@ -41,7 +41,7 @@ Der Weise arbeitet in der Claude-Desktop-App im Reiter „Code“ oder in Claude
 | `/weise:einrichten` | Richtet den Weisen im Gespräch ein und bietet die volle Suche an; startet nur, wenn Sie den Befehl eingeben. |
 | `/weise:thema` | Legt ein neues Lernthema an oder aktualisiert ein bestehendes, beginnend mit Ihrem Lernziel. |
 | `/weise:lernen` | Führt eine Lern-Session: erst fällige Abfrage-Karten, dann das nächste Konzept, erklärt und gleich an Ihrem Projekt gebaut. |
-| `/weise:vorschlag` | Macht aus Ihrem Verbesserungswunsch einen Vorschlag und öffnet ihn nach Ihrer Freigabe als öffentliches Issue im Browser. |
+| `/weise:vorschlag` | Macht aus Ihrem Verbesserungswunsch einen Vorschlag und reicht ihn nach Ihrer Freigabe als öffentliches Issue ein. |
 | `/weise:paket` | Spielt ein Wissenspaket als Lernthema ein oder aktualisiert es (siehe unten); startet nur, wenn Sie den Befehl eingeben. |
 
 Sie müssen die Befehle nicht auswendig kennen. Sätze wie „Neues Lernthema: …“, „Lern-Session“, „lernen wir weiter“ oder „frag mich ab“ genügen.
@@ -123,7 +123,7 @@ Wechseln Sie später auf VOLL, rufen Sie `/weise:einrichten` erneut auf. Ihre Th
 - **Claude-Einstellungen ändert er nur nach Rückfrage:** `/weise:einrichten` bietet an, den Ordner `%USERPROFILE%\weise` (und Ihren Themenordner, falls er woanders liegt) als zusätzlichen Arbeitsordner in `%USERPROFILE%\.claude\settings.json` einzutragen, damit der Weise dort ohne Rückfragen lesen kann. Die Änderung sehen Sie vorher. Findet er ältere Kopien des Weisen unter `%USERPROFILE%\.claude\skills`, verschiebt er sie nach Ihrer Zustimmung in die Sicherung. Gelöscht wird nichts.
 - **Websuche nur, wenn Sie das wählen:** Mit der Einstellung „websuche“ sucht der Weise selbst im Internet, und zwar erst, wenn Sie die Themenliste freigegeben haben. Mit „werkzeug“ schreibt er Rechercheaufträge für Ihr eigenes Recherche-Werkzeug und sucht nur dann selbst, wenn Sie ihn ausdrücklich darum bitten.
 - **Wissenspakete liest er nur:** `/weise:paket` liest die Liste Ihrer installierten Plugins (`%USERPROFILE%\.claude\plugins\installed_plugins.json`, ersatzweise den Plugin-Ordner) und die Ordner der Wissenspakete, prüft die Dateien per PowerShell und kopiert sie in Ihren Themenordner. Bei „Neues Lernthema“ sieht `/weise:thema` an denselben Stellen nach, ob ein passendes Paket installiert ist. In die Plugin-Ordner schreibt der Weise nichts.
-- **Vorschläge nur nach Ihrer Freigabe:** `/weise:vorschlag` entfernt Namen, Pfade und vertrauliche Angaben, zeigt Ihnen den fertigen Text und öffnet dann ein vorausgefülltes Issue im Browser. Abschicken tun Sie selbst. Issues auf GitHub sind öffentlich.
+- **Vorschläge nur nach Ihrer Freigabe:** `/weise:vorschlag` entfernt Namen, Pfade und vertrauliche Angaben, zeigt Ihnen den fertigen Text und fragt, wie er eingereicht werden soll. Ist auf Ihrem Rechner die GitHub-Kommandozeile `gh` angemeldet, kann der Weise den Vorschlag nach Ihrer Freigabe direkt senden; er nennt vorher das Konto, unter dem das Issue erscheint, und fragt dafür einmal bei github.com den Kontonamen ab. Sonst öffnet er das ausgefüllte Formular im Browser, und Sie klicken selbst auf Absenden. Sie können auch nur speichern. Ein Konto oder eine Anmeldung richtet der Weise nie ein. Issues auf GitHub sind öffentlich.
 - **Das Gespräch selbst** verarbeitet Claude wie in jeder Claude-Code-Sitzung, einschließlich der Dateien, die der Weise dafür liest. Legen Sie deshalb keine vertraulichen Inhalte in Ihre Lernthemen, also keine Akten, Mandats- oder Kundendaten. Der Weise arbeitet mit Lernmaterial, Anleitungen und erfundenen Übungsfällen.
 
 ## Updates
@@ -155,7 +155,7 @@ Wissenspakete sind eigene Plugins und bleiben dabei installiert. Entfernen mit `
 ## Hilfe und Vorschläge
 
 - **Wenn etwas klemmt:** [docs/hilfe.md](docs/hilfe.md) listet die bekannten Fehlerbilder. `/weise:einrichten` zeigt jederzeit Ihr Profil und prüft die Technik.
-- **Vorschläge und Fehler:** mit `/weise:vorschlag` oder direkt als [Issue](https://github.com/JasonDavid77/der-weise/issues). Für ein Issue brauchen Sie ein kostenloses GitHub-Konto. Der Weise legt jeden Vorschlag zusätzlich unter `%USERPROFILE%\weise\vorschlaege\` ab; dort bleibt er gespeichert, bis Sie ihn einreichen.
+- **Vorschläge und Fehler:** mit `/weise:vorschlag` oder direkt als [Issue](https://github.com/JasonDavid77/der-weise/issues). Für ein Issue brauchen Sie ein kostenloses GitHub-Konto. Der Weise legt jeden Vorschlag zusätzlich unter `%USERPROFILE%\weise\vorschlaege\` ab; dort bleibt er gespeichert, mit dem Stand (gespeichert, im Browser geöffnet oder eingereicht mit Link).
 - **Ohne GitHub-Konto:** Schicken Sie die gespeicherte Datei über [LinkedIn](https://www.linkedin.com/in/jason-lau-christen-81bbb3240).
 - **Mitarbeit:** Pull Requests bitte erst nach Absprache in einem Issue.
 - **Sicherheitslücken** bitte nicht als Issue melden, sondern wie in [SECURITY.md](SECURITY.md) beschrieben.

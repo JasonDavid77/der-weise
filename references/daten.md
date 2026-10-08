@@ -53,6 +53,17 @@ dem diese Datei gelesen wurde (in dieser Datei setzt Claude Code den Pfad nicht 
     im Thema unter `sources/paket/` ab, mit `paket.json` im Themenordner. Nur dieser Skill aendert
     `sources/paket/`; Ueberholtes daraus kommt nach `updates.md`, nicht in die Datei. Eigene Quellen
     der Person liegen daneben in `sources/`.
+12. **Frist (Frische des Stoffs):** Die Stufe ist das erste Wort der Volatilitaet: `hoch` (auch
+    `high`) = 28 Tage, `mittel` (`medium`) = 3 Monate, `niedrig` (`low`) = 12 Monate, gerechnet ab
+    dem Stand des Materials (im Thema "Letzter Ingest", beim Wissenspaket `stand`). Nicht im Kopf
+    rechnen:
+    ```
+    $stand = '<JJJJ-MM-TT>'; $stufe = '<erstes Wort der Volatilitaet>'
+    $bis = switch -Regex ($stufe) { '^(hoch|high)' { (Get-Date $stand).AddDays(28) } '^(mittel|medium)' { (Get-Date $stand).AddMonths(3) } '^(niedrig|low)' { (Get-Date $stand).AddMonths(12) } default { $null } }
+    if ($bis) { "Frist bis $($bis.ToString('yyyy-MM-dd')) | Tage darueber: $((New-TimeSpan -Start $bis.Date -End (Get-Date).Date).Days)" } else { "keine Frist" }
+    ```
+    Ueber der Frist ist der Stoff ab 1 Tag darueber. Fehlt der Stand, liegt er in der Zukunft oder
+    passt die Stufe nicht: "keine Frist", und das in einem Satz sagen.
 
 ## Profil (`config.json`)
 

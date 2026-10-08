@@ -49,7 +49,7 @@ Die Plugin-Ordner der Pakete werden nur gelesen, nie beschrieben (Datenregel 2).
 
 ## 2. Auswaehlen
 
-Je Paket eine Zeile: Titel, Version, Stand, Dateien (Feld `anzahl`), Hinweis aus dem Manifest, und
+Je Paket eine Zeile: Titel, Version, Stand (mit "ueber der Frist", wenn Datenregel 12 das ergibt), Dateien (Feld `anzahl`), Hinweis aus dem Manifest, und
 ob es schon eingespielt ist (Glob `<werkraum>/*/paket.json`, Feld `paket` gleich: Thema und dessen
 Version nennen, dazu "aktuell", "Update" oder "aelter als im Thema"). Mehrere Pakete: Auswahl per
 Rueckfrage. Ein Paket: nennen und weiter. Ist das einzige Paket gleich oder aelter als im Thema:
@@ -74,7 +74,13 @@ $ist = @(Get-ChildItem -LiteralPath $s -Recurse -File -Force).Count
 "format $($m.format) | $ok von $($m.anzahl) geprueft | Dateien im Ordner: $ist | abweichend: $($ab -join ', ') | fehlt: $($fe -join ', ')"
 ```
 
-(`-eq` vergleicht ohne Gross/Klein; `Get-FileHash` liefert Grossbuchstaben, das Manifest kleine.)
+3. **Frist.** Datenregel 12 mit `stand` und `volatilitaet` aus dem Manifest. Ueber der Frist: VOR dem
+   Kopieren in einem eigenen Satz sagen: "Achtung: Das Material ist vom <stand> und gilt nach
+   eigener Angabe nach <frist> als veraltet, heute <n> Tage darueber. Ich spiele es trotzdem ein;
+   volatile Stellen pruefen wir vor dem Einsatz live." Kein STOP, die Person entscheidet. Derselbe
+   Satz steht im ANLAGE- bzw. UPDATE-BERICHT in Punkt 1.
+
+Zu Punkt 2: (`-eq` vergleicht ohne Gross/Klein; `Get-FileHash` liefert Grossbuchstaben, das Manifest kleine.)
 Bestanden nur bei `format 1`, `<anzahl> von <anzahl>` und gleicher Dateizahl im Ordner. Sonst
 STOP: die Zeile woertlich zeigen, nichts kopieren, und sagen: Das Paket ist beschaedigt,
 unvollstaendig oder veraendert; Paket neu installieren bzw. neu klonen, dann wieder `/weise:paket`
@@ -119,8 +125,9 @@ unvollstaendig oder veraendert; Paket neu installieren bzw. neu klonen, dann wie
    (`$mf = "$t\paket.json"`, `$s = "$t\sources\paket"`): erst damit ist die Kopie bewiesen.
 3. **Deckblatt `_index.md`** fuellen: Lernziel, Status [SAMMELN], Gestartet heute,
    Verknuepfungen "Wissenspaket <titel> <version>, Quelle: <quelle>", Volatilitaet aus dem
-   Manifest, Letzter Ingest = `<stand> (Paket)` (das Datum des Materials; der Frische-Check des
-   Weisen rechnet damit), darunter die neue Zeile `| Paketstand | <stand> (Paket <paket> <version>) |`,
+   Manifest, Letzter Ingest = `<stand> (Paket)` (das Datum des Materials, in beiden Betriebsarten und
+   anders als thema A.7; der Frische-Check des Weisen rechnet damit), darunter die neue Zeile
+   `| Paketstand | <stand> (Paket <paket> <version>), Frist bis <datum aus Datenregel 12> |`,
    Praxis-Modus. Im Doc-Index EINE Zeile fuer `sources/paket/` (Inhaltsverzeichnis:
    `sources/paket/readme.md`). Log-Zeile mit Paket und Version. `learner-state.md`: Anker. Zeile in
    `<werkraum>/_themen.md`.
@@ -177,7 +184,7 @@ unvollstaendig oder veraendert; Paket neu installieren bzw. neu klonen, dann wie
    4. `$t\paket.neu` nach `$t\sources\paket` verschieben; `$p\weise-paket.json` nach `$t\paket.json`
       kopieren (der Paket-Ordner bleibt unberuehrt).
    Scheitert ein Schritt: anhalten, den Stand woertlich melden, nichts loeschen.
-4. **Alle Versionsangaben nachziehen:** im Deckblatt Paketstand, Verknuepfungen, die Doc-Index-Zeile
+4. **Alle Versionsangaben nachziehen:** im Deckblatt Paketstand (mit neuer "Frist bis"), Verknuepfungen, die Doc-Index-Zeile
    von `sources/paket/` und Letzter Ingest (`<neuer stand> (Paket)`); die Zeile des Pakets in
    `werkzeug-register.md`; Log-Zeile "Paket <alt> -> <neu>: n neu, n geaendert, n entfallen, n
    gerettet nach eingang/". Danach Grep nach der alten Versionsnummer im Thema: ausser in

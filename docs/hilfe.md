@@ -38,6 +38,14 @@ Grundregel bei jedem Fehler: **Nichts umgehen.** Stoppt ein Schutzprogramm oder 
 | „Den Themenordner gibt es schon“ | Ein Thema mit diesem Namen liegt im Themenordner, ohne dieses Paket | Der Weise überschreibt nichts. Wählen Sie einen anderen Namen oder spielen Sie das Paket in das bestehende Thema ein (nur wenn dort noch kein anderes Paket liegt) |
 | „Kein reines Wissenspaket“ | Das Paket bringt Befehle, Hooks oder einen Server mit | Der Weise spielt nur Daten ein. Prüfen Sie, woher das Paket stammt |
 
+### Vorschläge (`/weise:vorschlag`)
+
+| Sie sehen … | Wahrscheinliche Ursache | Was Sie tun |
+|---|---|---|
+| Der Weise bietet „Direkt senden“ nicht an | Die GitHub-Kommandozeile `gh` fehlt oder ist bei github.com nicht angemeldet | Den Weg über den Browser nehmen. Der Weise richtet keine Anmeldung ein |
+| Das direkte Senden scheitert (403, SSO, Zeitüberschreitung) | Das angemeldete Konto darf dort kein Issue anlegen, oder die Verbindung brach ab | Der Weise zeigt die Meldung, prüft, ob das Issue trotzdem angelegt wurde, und bietet sonst den Browser an |
+| Als Konto wird ein Firmenkonto genannt | `gh` ist mit dem Arbeitskonto angemeldet | „Im Browser senden“ wählen und dort mit dem gewünschten Konto absenden |
+
 ### Einrichtung VOLL (Windows)
 
 | Sie sehen … | Wahrscheinliche Ursache | Was Sie tun |

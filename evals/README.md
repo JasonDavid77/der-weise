@@ -9,7 +9,7 @@ https://code.claude.com/docs/en/plugin-evals). Jeder Lauf ist ein echter Modella
 |---|---|---|
 | `trigger/` | 18 | `lernen`, `thema` und `vorschlag` springen an: je Skill drei Sätze auf Deutsch, drei auf Englisch |
 | `no-trigger/` | 10 | `einrichten` und `paket` springen nie von selbst an (je 2 Fälle); bei 6 fremden Anfragen springt kein Skill des Weisen an, darunter Beinahe-Treffer |
-| `behavior/` | 3 | `lernen-board-betriebsart`: das Board zeigt die Betriebsart; `thema-themenliste-vor-prompts`: erst die Themenliste zur Freigabe, dann Recherche-Prompts; `vorschlag-text-vor-link`: erst der Text zur Freigabe, dann der Link |
+| `behavior/` | 3 | `lernen-board-betriebsart`: das Board zeigt die Betriebsart; `thema-themenliste-vor-prompts`: erst die Themenliste zur Freigabe, dann Recherche-Prompts; `vorschlag-text-vor-link`: erst der Text zur Freigabe, dann Link oder Senden (ohne Shell-Werkzeug nur der Weg über den Browser) |
 
 Alle Themen und Vorschläge sind erfunden und tragen "TEST". Es gibt nur kostenlose Prüfer
 (`regex`, `tool_used`), kein Richter-Modell.

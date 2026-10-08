@@ -41,7 +41,7 @@ Der Weise works in the Claude desktop app under the "Code" tab or in Claude Code
 | `/weise:einrichten` | Sets up Der Weise in conversation and offers the full search; runs only when you type the command. |
 | `/weise:thema` | Creates a new learning topic or updates an existing one, starting with your learning goal. |
 | `/weise:lernen` | Runs a learning session: due recall cards first, then the next concept, explained and built right into your project. |
-| `/weise:vorschlag` | Turns your improvement idea into a proposal and, after your approval, opens it as a public issue in your browser. |
+| `/weise:vorschlag` | Turns your improvement idea into a proposal and, after your approval, submits it as a public issue. |
 | `/weise:paket` | Imports a knowledge pack as a learning topic or updates it (see below); runs only when you type the command. |
 
 You don't need to remember the commands. Phrases such as "new learning topic: …", "let's keep learning" or "quiz me" are enough.
@@ -125,7 +125,7 @@ To switch to FULL later, run `/weise:einrichten` again. Your topics and recall c
 - **It changes Claude settings only after asking:** `/weise:einrichten` offers to add the folder `%USERPROFILE%\weise` (and your topics folder, if it lives elsewhere) as an additional working directory in `%USERPROFILE%\.claude\settings.json`, so Der Weise can read there without prompts. You see the change first. If it finds older copies of Der Weise under `%USERPROFILE%\.claude\skills`, it moves them to the backup folder after you agree. Nothing is deleted.
 - **Web search only if you choose it:** with the setting "websuche" Der Weise searches the web itself, and only after you have approved the topic list. With "werkzeug" it writes research prompts for your own research tool and only searches itself if you explicitly ask it to.
 - **Knowledge packs are only read:** `/weise:paket` reads the list of your installed plugins (`%USERPROFILE%\.claude\plugins\installed_plugins.json`, or else the plugin folder) and the folders of the knowledge packs, checks the files with PowerShell and copies them into your topics folder. On "new learning topic", `/weise:thema` looks in the same places for a matching installed pack. Der Weise writes nothing into plugin folders.
-- **Proposals only after your approval:** `/weise:vorschlag` removes names, paths and confidential details, shows you the final text and then opens a prefilled issue in your browser. You click submit yourself. Issues on GitHub are public.
+- **Proposals only after your approval:** `/weise:vorschlag` removes names, paths and confidential details, shows you the final text and asks how to submit it. If the GitHub command line `gh` is signed in on your computer, Der Weise can send the proposal directly after your approval; it first names the account the issue will appear under, and for that it asks github.com once for the account name. Otherwise it opens the prefilled form in your browser and you click submit yourself. You can also just save it. Der Weise never sets up an account or a sign-in. Issues on GitHub are public.
 - **The conversation itself** is processed by Claude like in any Claude Code session, including the files Der Weise reads for it. So keep confidential content out of your learning topics: no case files, client or customer data. Der Weise works with learning material, guides and invented practice cases.
 
 ## Updates
@@ -157,7 +157,7 @@ Knowledge packs are plugins of their own and stay installed. Remove them with `/
 ## Help and proposals
 
 - **If something is stuck:** [docs/hilfe.md](docs/hilfe.md) (German) lists the known problems. `/weise:einrichten` shows your profile and checks the technology at any time.
-- **Proposals and bugs:** with `/weise:vorschlag` or directly as an [issue](https://github.com/JasonDavid77/der-weise/issues). Submitting an issue needs a free GitHub account. Der Weise also saves every proposal under `%USERPROFILE%\weise\vorschlaege\`; it stays there until you submit it.
+- **Proposals and bugs:** with `/weise:vorschlag` or directly as an [issue](https://github.com/JasonDavid77/der-weise/issues). Submitting an issue needs a free GitHub account. Der Weise also saves every proposal under `%USERPROFILE%\weise\vorschlaege\`; it stays there, with its status (saved, opened in the browser, or submitted with link).
 - **No GitHub account:** send the saved file via [LinkedIn](https://www.linkedin.com/in/jason-lau-christen-81bbb3240).
 - **Contributing:** please open an issue before sending a pull request.
 - **Security issues:** please don't report them as issues; follow [SECURITY.md](SECURITY.md).

@@ -30,7 +30,7 @@ UTF-8 ohne BOM.
 | `version` | gleich `version` in plugin.json; bei jeder Änderung des Materials erhöhen |
 | `stand` | Datum des Materials, `JJJJ-MM-TT` |
 | `sprache` | Sprache des Materials, etwa `en` oder `de` |
-| `volatilitaet` | `hoch (4 Wochen)`, `mittel (3 Monate)` oder `niedrig (12 Monate)`, dazu ein Satz warum |
+| `volatilitaet` | beginnt mit `hoch` (Frist 28 Tage), `mittel` (3 Monate) oder `niedrig` (12 Monate), etwa `hoch (4 Wochen): …`; englisch `high`, `medium`, `low`. Über der Frist warnt der Weise beim Einspielen |
 | `quelle` | woher das Material stammt |
 | `hinweis` | Nutzungshinweis (etwa Lizenz), wird der Person vor dem Einspielen gezeigt |
 | `anzahl` | Zahl der Einträge in `dateien` |

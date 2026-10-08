@@ -2,6 +2,18 @@
 
 Der Weise, von Jason Lau-Christen. Versionen nach dem Schema Hauptversion.Neuerung.Korrektur.
 
+## 4.1.1 (08.10.2026)
+
+- **Vorschläge ohne doppeltes Prüfen:** Ihre Freigabe im Gespräch ist der letzte Schritt. Ist die GitHub-Kommandozeile `gh` angemeldet, sendet der Weise den Vorschlag direkt und nennt den Link; vorher nennt er das Konto, unter dem das Issue erscheint. Sonst öffnet er das ausgefüllte Formular, und es bleibt ein Klick. „Nur speichern“ gibt es weiterhin.
+- **Stand in der gespeicherten Kopie:** Jeder Vorschlag trägt, ob er gespeichert, im Browser geöffnet oder eingereicht ist.
+- **Warnung bei altem Paketmaterial:** Ist ein Wissenspaket beim Einspielen über seiner eigenen Frist, sagt der Weise das vor dem Kopieren in einem eigenen Satz und im Bericht. Im Deckblatt steht „Frist bis <Datum>“.
+- **Eine Fristregel für alles:** hoch = 28 Tage, mittel = 3 Monate, niedrig = 12 Monate; der Weise rechnet sie aus, statt zu schätzen.
+
+### Woran Sie es merken
+
+- Bei `/weise:vorschlag` fragt der Weise nach dem Text, ob er direkt senden, das Formular öffnen oder nur speichern soll.
+- Bei `/weise:paket` mit älterem Material kommt vor dem Kopieren der Satz „Achtung: Das Material ist vom …“.
+
 ## 4.1.0 (Wissenspakete, 01.10.2026)
 
 - **Neuer Befehl `/weise:paket`:** spielt ein Wissenspaket als Lernthema ein. Ein Wissenspaket ist ein eigenes Plugin mit fertigem Lernmaterial, ohne Lernziel und ohne Lernstand. Der Weise prüft jede Datei per Prüfsumme, fragt nach Ihrem Lernziel und legt das Thema an, bei VOLL auch im Speicher.

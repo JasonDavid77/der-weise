@@ -89,11 +89,12 @@ Themas (Themen-Modus) bzw. im ganzen `werkzeug-register.md` des Werkraums
    Bedienkarte `ui-observed.md` lesen -- alle DIREKT als Datei, nicht ueber den
    Speicher (sie sind nicht gespeichert, s. `references/wissen.md`). Fehlt learner-state.md
    -> aus der Vorlage (`references/karten.md`) anlegen.
-1b. **Frische-Check:** Deckblatt-Zeilen "Volatilitaet" + "Letzter Ingest" lesen.
-   Schwelle gerissen (hoch = 4 Wochen | mittel = 3 Monate | niedrig = 12 Monate)
+1b. **Frische-Check:** Deckblatt-Zeilen "Volatilitaet" + "Letzter Ingest" lesen,
+   Frist nach Datenregel 12. Frist ueberschritten
    -> VOR dem Unterricht ein 1-Satz-Pitch: "Stand ist vom <Datum>. Erst ein
    Update?" Bei GO: Skill `thema` Teil E, danach Unterricht. Immer nur Pitch, nie
-   Auto-Recherche. Hat das Deckblatt eine Zeile "Paketstand", nennt der Pitch
+   Auto-Recherche. Hat das Deckblatt eine Zeile "Paketstand", gilt auch deren
+   "Frist bis <datum>": ist sie vorbei, kommt der Pitch ebenfalls, und er nennt
    zuerst den Weg ueber ein neueres Paket (`/weise:paket`, Datenregel 11).
 1c. **Stand-Pruefung der Karten (vor jedem Recall, Pflicht):** Fuer jede faellige
    Karte pruefen, ob Frage und erwartete Antwort noch zum Ist-Stand passen:
