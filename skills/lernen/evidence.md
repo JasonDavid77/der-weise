@@ -63,6 +63,17 @@ Lernpfad blieb stehen, waehrend das Projekt wuchs.
   Kirschner 2018, dynamische Aufgabenauswahl)* -> **Projekt-Nachzug:** der
   Lernpfad waechst mit dem Projekt; Backward Design bleibt der Rahmen, der Anker
   darf sich entwickeln.
+- **Projektpfad zuerst (v5, 2026-10-09)** -- Backward Design plant vom Ziel
+  rueckwaerts und laesst weg, was nicht auf das Ziel einzahlt *(Wiggins & McTighe
+  2005)*; Lernaufgaben werden passend zu Ziel und Lernstand ausgewaehlt, nicht
+  der ganze Stoff der Reihe nach *(van Merrienboer & Kirschner 2018, dynamische
+  Aufgabenauswahl)*; was Lernende schon koennen, braucht keine volle Fuehrung
+  mehr *(Kalyuga 2007, Expertise-Reversal)*. Anlass aus der Nutzung: Der Lernpfad
+  fuehrte jedes Konzept des Themas, auch die, die das Projekt nie brauchte.
+  -> `concepts.md` ist die Karte, gelernt wird der **Projektpfad**; der Pfad wird
+  vor dem Start mit der Person abgestimmt; "schon gekonnt" kuerzt nur die
+  Fuehrung (Stufen 1 bis 3), nie die Anwendung, und "sitzt" kommt weiter nur aus
+  den Karten.
 - **Veraltete Praemissen** (LLM- und Material-Failure-Mode, eigener Befund) --
   Karten, die einen ueberholten Stand abfragen, kalibrieren in die falsche
   Richtung; Karten ueber Fachstoff statt Werkzeug-Mechanik pruefen das Falsche.

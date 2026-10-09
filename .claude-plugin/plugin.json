@@ -1,7 +1,7 @@
 {
   "name": "weise",
   "displayName": "Der Weise",
-  "version": "4.3.0",
+  "version": "5.0.0",
   "description": "A tutor that teaches while you work: learn a tool or field on your real project, with explanations from scratch, a growing learning path and recall cards. Files stay local.",
   "author": {
     "name": "Jason Lau-Christen"

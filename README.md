@@ -40,11 +40,13 @@ Der Weise arbeitet in der Claude-Desktop-App im Reiter „Code“ oder in Claude
 |---|---|
 | `/weise:einrichten` | Richtet den Weisen im Gespräch ein und bietet die volle Suche an; startet nur, wenn Sie den Befehl eingeben. |
 | `/weise:thema` | Legt ein neues Lernthema an oder aktualisiert ein bestehendes, beginnend mit Ihrem Lernziel. |
-| `/weise:lernen` | Führt eine Lern-Session: erst fällige Abfrage-Karten, dann das nächste Konzept, erklärt und gleich an Ihrem Projekt gebaut. |
+| `/weise:lernen` | Führt eine Lern-Session: erst fällige Abfrage-Karten, dann das nächste Konzept auf Ihrem Projektpfad, erklärt und gleich an Ihrem Projekt gebaut. |
 | `/weise:vorschlag` | Macht aus Ihrem Verbesserungswunsch einen Vorschlag und reicht ihn nach Ihrer Freigabe als öffentliches Issue ein. |
 | `/weise:paket` | Spielt ein Wissenspaket als Lernthema ein oder aktualisiert es (siehe unten); startet nur, wenn Sie den Befehl eingeben. |
 
 Sie müssen die Befehle nicht auswendig kennen. Sätze wie „Neues Lernthema: …“, „Lern-Session“, „lernen wir weiter“ oder „frag mich ab“ genügen.
+
+Gelernt wird, was Ihr Projekt braucht. Der Weise legt eine Karte des ganzen Themas an und stimmt mit Ihnen den Projektpfad ab: die Konzepte, die Ihr Projekt braucht, in der Reihenfolge des Baus. Alles andere bleibt auf der Karte und kommt nur dran, wenn Sie es wünschen („Karte“ zeigt sie). Ein Thema kann nacheinander mehrere Projekte tragen („Neues Projekt zu …“), jedes mit eigenem Ordner; was Sie schon gelernt haben, bleibt.
 
 ## Wissenspakete
 
@@ -75,9 +77,13 @@ Einige Tage später, mitten im Bau:
 ```
 🧙 Der Weise: TEST-Anfragen per Formular
 | WISSEN: thema=test-anfragen, VOLL (180 Abschnitte) | Modus: NORMAL |
-| LERNPFAD                           | DELIVERABLE-SPUR             |
+| PROJEKT: anfragen-formular  --  Karte gesamt: 1/9 sitzen          |
+| PROJEKTPFAD (4)                    | BAUSTEINE                    |
 | [x] K1 Auslöser              sitzt | [x] Formular steht           |
 | [~] K2 Antwortdetails  <==   läuft | [~] Ablauf holt die Antwort  |
+| [ ] K4 Zeile anlegen         offen | [ ] Eintrag in der Liste     |
+| [ ] K6 Mail senden           offen | [ ] Bestätigung per Mail     |
+| Frei (nicht im Projekt): 5 Konzepte  (zeigen mit "Karte")         |
 Formular > [Ablauf] > Liste > Mail
 ```
 

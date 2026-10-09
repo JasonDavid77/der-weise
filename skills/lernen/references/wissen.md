@@ -11,7 +11,7 @@ Zwei Schichten, nach Art des Wissens:
 
 **Nicht gespeicherte Dateien als DATEI lesen, nie ueber den Speicher suchen:**
 `_index.md`, `concepts.md`, `questions.md`, `learner-state.md`, `updates.md`,
-`ui-observed.md`, `recall-cards.md`, `uebungen/`. Gespeichert (VOLL, ueber
+`ui-observed.md`, `recall-cards.md`, `uebungen/`, `projekte/`. Gespeichert (VOLL, ueber
 query.py erreichbar) sind nur `synthesis.md` + `sources/*.md/.txt`.
 
 **Stichwortsuche (OHNE PYTHON)** ersetzt die Bedeutungssuche:
@@ -21,7 +21,8 @@ query.py erreichbar) sind nur `synthesis.md` + `sources/*.md/.txt`.
 2. NUR in `synthesis.md` und `sources/` des Themas suchen (rekursiv, .md/.txt,
    ohne `readme.md` und ohne `_archive`) -- genau das, was VOLL im Speicher hat;
    almighty: dasselbe ueber alle Themen plus `werkzeug-register.md`. Nie in
-   `uebungen/` (erfundene Faelle), `eingang/` (Unkuratiertes; alter Name: Datenregel 7) oder
+   `uebungen/` (erfundene Faelle), `projekte/` (Bau-Stand und Entwuerfe, kein Lernstoff),
+   `eingang/` (Unkuratiertes; alter Name: Datenregel 7) oder
    `updates.md` (Ueberholtes). Gross-/Kleinschreibung egal; deutsche Woerter mit
    Umlaut UND in der Schreibweise ae/oe/ue/ss. Mit dem Grep-Werkzeug der Sitzung
    suchen (liest UTF-8 richtig), nicht mit Select-String in Windows PowerShell

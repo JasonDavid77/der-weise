@@ -129,7 +129,7 @@ unvollstaendig oder veraendert; Paket neu installieren bzw. neu klonen, dann wie
   `paket.json` und im Deckblatt die Zeile Paketstand, das Paket in Verknuepfungen (anhaengen), die
   Doc-Index-Zeile und eine Log-Zeile; Volatilitaet und Letzter Ingest nur, wenn dort noch der
   Platzhalter steht. Lernziel, Status, Lernstand und alles andere bleiben. Danach A.6 und VOLL der
-  Speicher wie in 5.4, A.7b nur auf Wunsch (Lernpfad erweitern), dann der Bericht. Liegen dieselben
+  Speicher wie in 5.4, A.7b nur auf Wunsch (Karte erweitern; was davon auf den Projektpfad kommt, klaert der Projekt-Nachzug im Skill `lernen`), dann der Bericht. Liegen dieselben
   Texte (gleiche Pruefsumme) schon in `sources/` des Themas: zeigen, die Person entscheidet, ob sie
   nach `sources/_archive/` gehen (sonst findet die Suche alles doppelt).
 
@@ -160,7 +160,8 @@ unvollstaendig oder veraendert; Paket neu installieren bzw. neu klonen, dann wie
    anders als thema A.7; der Frische-Check des Weisen rechnet damit), darunter die neue Zeile
    `| Paketstand | <stand> (Paket <paket> <version>), Frist bis <datum aus Datenregel 12> |`,
    Praxis-Modus. Im Doc-Index EINE Zeile fuer `sources/paket/` (Inhaltsverzeichnis:
-   `sources/paket/readme.md`). Log-Zeile mit Paket und Version. `learner-state.md`: Anker. Zeile in
+   `sources/paket/readme.md`). Log-Zeile mit Paket und Version. `learner-state.md`: Anker und
+   aktives Projekt wie in thema A.2 (der Projektpfad folgt in A.7b). Zeile in
    `<werkraum>/_themen.md`.
 4. **Weiter wie thema Teil A:** A.5 Recherche nur, wenn die Person es will (der Stoff liegt vor);
    A.6 Quellen-Scan (Herkunft des Pakets: "Paket-Manifest"); dann VOLL

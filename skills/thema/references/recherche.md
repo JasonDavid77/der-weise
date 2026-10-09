@@ -80,8 +80,9 @@ eingearbeitet wird; dann je Datei:
 5. **Uebersicht fortschreiben:** Ergebnis vom, Eingangsdatei, Quelle, Stand "eingearbeitet"
    (erst jetzt). VOLL danach `learn-store.py --thema <name>`; in beiden Betriebsarten "Letzter
    Ingest" im Deckblatt auf heute.
-6. **Lernpfad nachziehen.** Ist `concepts.md` noch die Vorlage oder nur vorlaeufig (Hypothesen), jetzt
-   die Curriculum-Induktion aus thema A.7b nachholen bzw. den Lernpfad am neuen Stoff schaerfen.
+6. **Karte nachziehen.** Ist `concepts.md` noch die Vorlage oder nur vorlaeufig (Hypothesen), jetzt
+   die Curriculum-Induktion aus thema A.7b nachholen bzw. die Karte am neuen Stoff schaerfen; was
+   davon auf den Projektpfad kommt, klaert der Projekt-Nachzug (Skill `lernen`, Abschnitt 4).
 
 Mehrere oder lange Ergebnisse: nacheinander, je Ergebnis die Schritte 1 bis 5 ganz, Schritt 6 einmal am Ende. Hat die
 Sitzung ein Werkzeug fuer Unter-Agenten, liest je ein Unter-Agent ein Ergebnis, legt die Quelle ab

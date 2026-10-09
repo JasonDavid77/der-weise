@@ -2,6 +2,24 @@
 
 Der Weise, von Jason Lau-Christen. Versionen nach dem Schema Hauptversion.Neuerung.Korrektur.
 
+## 5.0.0 (Projektpfad, 09.10.2026)
+
+- **Projektpfad zuerst:** Der Weise lehrt nicht mehr jedes Konzept eines Themas der Reihe nach. Die Konzeptliste ist jetzt die Karte des ganzen Themas. Gelernt wird entlang des Projektpfads: nur die Konzepte, die Ihr Projekt braucht, in der Reihenfolge des Baus.
+- **Abgestimmt, bevor es losgeht:** Der Weise schlägt den Pfad vor, nennt die Zahl der übrigen Konzepte und fragt „Fehlt etwas, kann etwas weg?“. Ohne Ihr Ja beginnt kein Unterricht. Was Sie schon können, prüft er mit einer Frage und geht dann direkt in die Anwendung.
+- **Das Board zeigt nur den Pfad:** links der Projektpfad, rechts die Bausteine, darunter die freien Konzepte als Zahl. Das Wort „Karte“ zeigt die ganze Karte mit Lernstand.
+- **Mehrere Projekte je Thema:** „Neues Projekt zu <Thema>: …“ startet ein weiteres Projekt auf derselben Karte. Jedes Projekt hat einen eigenen Ordner `projekte/<name>/` mit Pfad, Bausteinen und Bau-Stand. Schon Gelerntes erscheint dort als „gelernt in <Projekt>“ und läuft nur noch über die Anwendung. Übungsdokumente bleiben in einem Ordner je Thema.
+- **Projektende:** Ist der letzte Baustein fertig, fragt der Weise, ob Sie freie Konzepte als Übung weiterlernen, ein neues Projekt beginnen oder aufhören wollen.
+- **Abfrage-Karten:** Neue Themen bekommen Karten nur für Konzepte auf dem Pfad. Eine Karte wird erst gestellt, wenn ihr Konzept gelehrt ist; bis dahin ruht sie. Fehlt einem gelehrten Konzept die Karte, legt der Weise sie an.
+- **Laufende Themen:** Der Weise schlägt einmal vor, aus dem bisherigen Projekt einen Projektpfad zu machen. Ohne Ihr Ja bleibt der Ablauf, wie er war. Lernstand und Karten bleiben in jedem Fall erhalten. Themen ohne Projekt laufen wie bisher.
+- **Vertrauliche Fälle:** Ist Ihr Projekt ein echter Fall, fragt der Weise danach. Dann bleiben Projektname und Bausteine im Themenordner neutral, und was Sie bauen, liegt nur an Ihrem eigenen Ort.
+
+### Woran Sie es merken
+
+- Bei einem neuen Lernthema mit Projekt zeigt der Weise, sobald der erste Stoff da ist, die Karte und dann den Projektpfad mit der Frage „Fehlt etwas, kann etwas weg?“.
+- Im Board steht bei Themen mit Projektpfad PROJEKTPFAD statt LERNPFAD und die Zeile „Frei (nicht im Projekt): … Konzepte“.
+- Neue Themen haben im Themenordner den Ordner `projekte`.
+- Bei einem Thema von früher kommt nach dem Board einmal die Frage, ob der Weise daraus einen Projektpfad machen soll.
+
 ## 4.3.0 (08.10.2026)
 
 - **Alle Pakete sehen und wählen:** `/weise:paket` zeigt immer eine Liste, auch bei nur einem Paket: installierte Pakete, Pakete aus Ihren bekannten Katalogen und Pakete aus Ordnern, je mit Zustand (eingespielt, bereit, nicht geladen). Danach wartet der Weise auf Ihre Wahl.

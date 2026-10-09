@@ -10,7 +10,8 @@ description: >
   "neues Lernthema", "Neues Lernthema: X", "ich will X lernen", "Thema lernen",
   "Einarbeitung starten", "Thema aktualisieren", "new learning topic",
   "I want to learn X", oder wenn ein bestehendes Thema im Werkraum
-  weiterbearbeitet oder aktualisiert wird.
+  weiterbearbeitet oder aktualisiert wird. Ein weiteres Projekt zu einem
+  bestehenden Thema ("Neues Projekt zu X") startet der Skill lernen.
 argument-hint: "[thema]"
 ---
 
@@ -67,11 +68,18 @@ THEMA: <thema> -- <Anlage | Arbeits-Session | Update>
    liegt dort schon vor (Datenregel 11). Nichts gefunden: still weiter.
 2. **Lernziel zuerst (Working Backwards):** "Was wollen Sie KOENNEN, wenn das
    Thema gefestigt ist?" -- 1-3 Punkte von der Person. Dabei auch fragen: "Gibt es
-   einen konkreten Fall / ein Projekt dafuer?" -> Anker vor-erfassen:
-   `learner-state.md` aus der Vorlage fuellen (Zeilen "Lern-Anker" und
-   "Projektordner"). Das Projekt muss dafuer NICHT fertig durchdacht sein: Der
-   Weise zieht Lernpfad und Deliverable-Spur nach, wenn es waechst
-   (Projekt-Nachzug). Ohne bestaetigtes Lernziel wird NICHT angelegt.
+   einen konkreten Fall / ein Projekt dafuer?" -> das ist das erste **Projekt**
+   des Themas. Einen kurzen Namen vorschlagen (kebab-case, zwei bis vier Woerter)
+   und fragen, ob es ein echter Fall mit vertraulichen Inhalten ist und wo er
+   liegt (Datenregel 10: dann bleibt alles am eigenen Ort der Person, und Name,
+   Lern-Anker und Bausteine sind im ganzen Werkraum neutral, s.
+   `${CLAUDE_PLUGIN_ROOT}/skills/lernen/references/projektpfad.md`, "Vertrauliches").
+   Nach dem Kopieren der Vorlage (A.3) in `learner-state.md` die Zeilen
+   "Lern-Anker", "Aktives Projekt: <name> (Pfad offen)" und "Projektordner"
+   fuellen, in `_themen.md` die Spalte "Anker (Projekt)". Das Projekt muss dafuer NICHT fertig durchdacht sein:
+   Der Projektpfad entsteht in A.7b und waechst mit (Projekt-Nachzug). Ohne
+   Projekt: "kein Anker" und "Aktives Projekt: keines". Ohne bestaetigtes
+   Lernziel wird NICHT angelegt.
 2b. **Praxis-Modus abfragen:** "Geht es um ein Werkzeug, das Sie bedienen lernen
    wollen -- soll der Weise je Konzept einen kleinen Fall, Uebungsdokumente und
    einen Klickweg zum Mitmachen bauen?" Antwort als Kopfzeile
@@ -134,14 +142,27 @@ THEMA: <thema> -- <Anlage | Arbeits-Session | Update>
    Ingest" dann das Datum, an dem zuletzt Stoff dazukam, mit dem Zusatz
    "(Datei-Betrieb)" -- der Frische-Check des Weisen rechnet mit diesem Datum.
 7b. **Curriculum-Induktion (Pflicht, sobald der erste Stoff da ist; VOLL nach dem ersten Ingest):** Aus synthesis +
-   sources eine `concepts.md` erzeugen (Lernpfad: Konzepte in Lernreihenfolge, je
-   1 Kern-Satz + Voraussetzungen) und in questions.md einen **Pruefkatalog**
+   sources eine `concepts.md` erzeugen (die Karte des Themas: Konzepte in
+   Lernreihenfolge, je 1 Kern-Satz + Voraussetzungen) und in questions.md einen **Pruefkatalog**
    anlegen (Frage / Erwartet / typische Irrtuemer -- mindestens fuer die
    Kern-Konzepte). Bei Werkzeug-Themen pruefen die Fragen die Mechanik des
-   Werkzeugs, nicht den Fachstoff des Ankers. Abfrage-Karten anlegen (VOLL:
+   Werkzeugs, nicht den Fachstoff des Ankers. Alle Konzepte der Karte mit
+   Lernstand "neu" in die Tabelle von `learner-state.md` eintragen.
+   **Projektpfad (hat das Thema ein Projekt):** gleich nach der Karte PLAN und
+   REVIEW nach `${CLAUDE_PLUGIN_ROOT}/skills/lernen/references/projektpfad.md`:
+   die Konzepte vorschlagen, die das Projekt braucht, in Bau-Reihenfolge, je mit
+   Baustein; die Zahl der freien Konzepte nennen; fragen "Fehlt etwas, kann etwas
+   weg?". Erst nach dem Ja `projekte/<name>/projekt.md` schreiben und in
+   `learner-state.md` den Zusatz "(Pfad offen)" streichen. Kommt kein Ja in
+   dieser Session, bleibt "(Pfad offen)" stehen; der Weise holt es vor der ersten
+   Lern-Session nach.
+   **Abfrage-Karten** anlegen (VOLL:
    `learn-recall.py --thema <name> --add "<frage>"`; OHNE PYTHON: Zeilen in
-   `recall-cards.md`, Fach 1, faellig morgen). Der Lernpfad ist ein Start,
-   kein Vertrag: Der Weise erweitert ihn, wenn das Projekt waechst.
+   `recall-cards.md`, Fach 1, faellig morgen): mit Projekt nur fuer Konzepte auf
+   dem Pfad (steht der Pfad noch nicht, noch keine; der Weise legt sie dann je
+   Konzept nach Stufe 5 an), ohne Projekt fuer die Kern-Konzepte. Gestellt wird
+   eine Karte erst, wenn ihr Konzept gelehrt ist. Karte und Pfad sind ein Start,
+   kein Vertrag: Der Weise erweitert sie, wenn das Projekt waechst.
 7c. **Konsistenz-End-Check (Pflicht):** Bevor der Bericht rausgeht, Zahlen und
    Status im `_index.md` und in `_themen.md` GEGEN die Dateien pruefen:
    Konzept-Zahl = Zeilen in concepts.md; Quellen-Zahl = Dateien in sources/
@@ -154,7 +175,8 @@ THEMA: <thema> -- <Anlage | Arbeits-Session | Update>
 
 1. `_index.md` + `questions.md` + `synthesis.md` lesen (vollstaendig).
 2. **Recall zuerst:** 2-3 faellige Karten bzw. Recall-Kandidaten abfragen, BEVOR
-   neuer Stoff kommt -- vorher pruefen, ob sie noch zum Stand passen. Jede
+   neuer Stoff kommt -- vorher pruefen, ob sie noch zum Stand passen; Karten zu
+   Konzepten mit Lernstand "neu" (laut `learner-state.md`) ruhen. Jede
    gestellte Karte in der Kartendatei des Themas fortschreiben
    (`${CLAUDE_PLUGIN_ROOT}/skills/lernen/references/karten.md`). (Volle
    Lern-Sessions fuehrt der Weise.)
@@ -200,6 +222,7 @@ ANLAGE-BERICHT <thema> -- YYYY-MM-DD
 4. Verknuepft:  <je Werkzeug EIN Satz: von wem + was es dem Thema bringt;
                 Status verbunden/Kandidat; Register gespeichert: ja/nein>
 5. Lernziel:    <1 Zeile> | Status: [TAG]
+   Projekt:     <name>: Pfad <p> von <n> Konzepten, <k> frei | Pfad offen | kein Projekt
 6. Naechster Schritt: <1 Zeile>
 ```
 
@@ -258,5 +281,6 @@ Trigger: Frische-Pitch des Weisen mit GO der Person -- oder die Person direkt
   die Person -> der Weise (alte Namen: Datenregel 7).
 - Themen nie loeschen: [RUHT] setzen.
 - Unterricht und Wissens-Pruefung macht der Weise (Skill `lernen`), nicht dieser
-  Skill. Das laufende Thema darf der Weise im Projekt-Nachzug erweitern; neue
-  Themen legt nur dieser Skill an.
+  Skill. Das laufende Thema darf der Weise im Projekt-Nachzug erweitern und um
+  ein weiteres Projekt ergaenzen ("Neues Projekt zu <thema>"); neue Themen legt
+  nur dieser Skill an.

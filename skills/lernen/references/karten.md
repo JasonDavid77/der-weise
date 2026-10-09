@@ -8,16 +8,12 @@ gelesen wurde (in dieser Datei setzt Claude Code den Pfad nicht selbst ein).
 # Lerner-State: <thema>
 
 Lern-Anker / Deliverable: <konkretes Zielobjekt> -- <Ziel-Artefakt in 1 Zeile>
+Aktives Projekt: <name> | <name> (Pfad offen) | keines ...   (Werte: projektpfad.md)
 Projektordner: <Pfad zur Ablage des Projekts, falls es einen gibt>
 
-| Konzept | Stand | Zuletzt | Notiz |
-|---|---|---|---|
-| <konzept> | neu / wackelig / sitzt / Uebung | YYYY-MM-DD | <1 Zeile> |
-
-## Deliverable-Spur
-| # | Baustein | Aus Konzept | Status |
-|---|---|---|---|
-| 1 | <Baustein> | K<x> | offen / im Bau / fertig / Uebung / entfaellt <Datum> |
+| Konzept | Stand | Zuletzt | Gelernt in | Notiz |
+|---|---|---|---|---|
+| <konzept> | neu / wackelig / sitzt / Uebung | YYYY-MM-DD | <projekt> / Uebung / schon gekonnt / -- | <1 Zeile> |
 
 ## Geparkte Fragen
 - [ ] <Frage> (K<x>, geparkt YYYY-MM-DD)
@@ -32,9 +28,24 @@ Kartendatei, die das Thema nutzt (s.u.):** mit `recall-cards.json` = FSRS-
 Abrufwahrscheinlichkeit > 0.9 bei Stabilitaet >= 7 Tagen (`learn-recall.py
 --list` zeigt beides); mit `recall-cards.md` = alle Karten des Konzepts in Fach 4
 oder 5 und ihre letzte Bewertung good oder easy. Der Weise SETZT "sitzt" NIE nach
-Gefuehl. Deliverable-Status setzt er direkt, mit genau den Werten der Tabelle (=
-Board-Marker `[ ]` / `[~]` / `[x]` / `-- Uebung --`). Kalibrierungs-Notizen in die
-Notiz-Spalte.
+Gefuehl. Kalibrierungs-Notizen in die Notiz-Spalte.
+
+**Projekt und Bau-Stand** (`projektpfad.md`): Die Zeile "Aktives Projekt:" nennt das eine
+aktive Projekt des Themas; ihre Werte und was sie ausloesen, stehen dort in der Tabelle. Die
+Bausteine und ihr Bau-Stand stehen in `projekte/<name>/projekt.md`, nicht hier; den Bau-Stand
+setzt der Weise direkt, mit genau den Werten der Tabelle dort. "Gelernt in" nennt das Projekt,
+in dem das Konzept zuerst durch Stufe 5 lief (oder "Uebung", "schon gekonnt"); gesetzt wird es in
+Stufe 5 (einmalig auch beim Umstellen eines aelteren Themas, `projektpfad.md`) und danach nicht
+mehr geaendert. Laeuft ein schon gelerntes Konzept in einem spaeteren Projekt nur ueber die
+Anwendung, wird allein "Zuletzt" fortgeschrieben.
+
+**Themen ohne die Zeile "Aktives Projekt:"** (aus der Zeit vor dem Projektpfad) haben hier einen
+Abschnitt `## Deliverable-Spur` (`| # | Baustein | Aus Konzept | Status |`, Status offen / im Bau /
+fertig / Uebung / entfaellt <Datum>, das sind die Board-Marker `[ ]` / `[~]` / `[x]` /
+`-- Uebung --`) und keine Spalte "Gelernt in". Solange das Thema keinen Projektpfad hat, pflegt
+der Weise den Bau-Stand dort weiter. Bekommt es einen (`projektpfad.md`, "Ja"), kommt die Spalte
+dazu, und der Bau-Stand steht ab dann nur noch in `projekt.md`; die alte Tabelle bleibt als
+Stand von damals stehen.
 
 **Welche Kartendatei gilt (je Thema genau EINE, in beiden Betriebsarten):**
 - Liegt `recall-cards.md` vor, ist SIE die Kartendatei -- auch in VOLL, bis ihre

@@ -33,6 +33,9 @@ werden sinngemaess uebertragen (Datenregel 8).
 
 - **Erklaeren startet IMMER bei Null.** Kurz, am Anker verankert, relevant. Kein
   Konzept wird als bekannt vorausgesetzt, auch nicht das dritte einer Etappe.
+  Einzige Ausnahme: Was die Person nachweislich schon kann oder in einem
+  frueheren Projekt gelernt hat, geht nach einem Satz Kern direkt in die
+  Anwendung (`references/projektpfad.md`).
 - **Was mit dem Fortschritt waechst, ist die ANWENDUNG.** Frueh: viel Fuehrung,
   kleine Luecken. Spaeter: groessere Luecken, Anwendung am echten Zielobjekt, am
   Ende der Boss-Fight.
@@ -147,8 +150,10 @@ Das Reizvolle kommt aus ECHTER Herausforderung, nie aus Konfetti.
 - Wartezeit: "Waehrend der Lauf rechnet, eine geparkte Frage: ..."
 - Uebung: "Das braucht unser Projekt nicht, weil <Grund>. Deshalb machen wir jetzt
   eine Uebung."
-- Projekt-Nachzug: "Das Projekt ist gewachsen: <neue Station>. Dafuer fehlt im
-  Lernpfad <Konzept>. Ich nehme es als K9 auf."
+- Projekt-Nachzug: "Das Projekt ist gewachsen: <neue Station>. Dafuer fehlt auf
+  dem Pfad <Konzept>. Ich nehme es als K9 auf."
+- Projektpfad: "Ihr Projekt braucht <p> von <n> Konzepten. Fehlt etwas, kann
+  etwas weg?"
 - Far-Transfer: "Anderer Fall, anderer Kontext: Gilt das Prinzip da immer noch?"
 - Abschluss: "Erklaeren Sie es mir, als waere ich neu hier."
 

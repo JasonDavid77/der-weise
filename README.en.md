@@ -40,11 +40,13 @@ Der Weise works in the Claude desktop app under the "Code" tab or in Claude Code
 |---|---|
 | `/weise:einrichten` | Sets up Der Weise in conversation and offers the full search; runs only when you type the command. |
 | `/weise:thema` | Creates a new learning topic or updates an existing one, starting with your learning goal. |
-| `/weise:lernen` | Runs a learning session: due recall cards first, then the next concept, explained and built right into your project. |
+| `/weise:lernen` | Runs a learning session: due recall cards first, then the next concept on your project path, explained and built right into your project. |
 | `/weise:vorschlag` | Turns your improvement idea into a proposal and, after your approval, submits it as a public issue. |
 | `/weise:paket` | Imports a knowledge pack as a learning topic or updates it (see below); runs only when you type the command. |
 
 You don't need to remember the commands. Phrases such as "new learning topic: …", "let's keep learning" or "quiz me" are enough.
+
+You learn what your project needs. Der Weise draws a map of the whole topic and agrees the project path with you: the concepts your project needs, in the order of the build. Everything else stays on the map and only comes up when you ask for it ("Karte" shows the map). A topic can carry several projects one after another ("Neues Projekt zu …"), each in its own folder; what you have already learned stays.
 
 ## Knowledge packs
 
@@ -75,13 +77,17 @@ A few days later, in the middle of the build:
 ```
 🧙 Der Weise: TEST requests via a form
 | WISSEN: thema=test-requests, VOLL (180 Abschnitte) | Modus: NORMAL |
-| LERNPFAD                            | DELIVERABLE-SPUR             |
+| PROJEKT: requests-form  --  Karte gesamt: 1/9 sitzen               |
+| PROJEKTPFAD (4)                     | BAUSTEINE                    |
 | [x] K1 Trigger                sitzt | [x] Form is ready            |
 | [~] K2 Response details  <==  läuft | [~] Flow fetches the answer  |
+| [ ] K4 Create row             offen | [ ] Entry in the list        |
+| [ ] K6 Send mail              offen | [ ] Confirmation by mail     |
+| Frei (nicht im Projekt): 5 Konzepte  (zeigen mit "Karte")          |
 Form > [Flow] > List > Mail
 ```
 
-The board keeps the German labels of the skill files: WISSEN (knowledge), VOLL (full mode), Abschnitte (sections), Modus (mode), LERNPFAD (learning path), DELIVERABLE-SPUR (deliverable track), sitzt (solid), läuft (in progress).
+The board keeps the German labels of the skill files: WISSEN (knowledge), VOLL (full mode), Abschnitte (sections), Modus (mode), PROJEKT (project), Karte gesamt (whole map), PROJEKTPFAD (project path: the concepts this project needs), BAUSTEINE (building blocks), Frei (free: concepts the project does not need), sitzt (solid), läuft (in progress), offen (open). Topics without a project show LERNPFAD (learning path) and DELIVERABLE-SPUR (deliverable track) instead.
 
 > **Der Weise:** 📖 K2, from zero: the trigger only reports *that* someone submitted the form and hands over a number for that response. The answers themselves are fetched by a second step, "Get response details". In everyday terms: the doorbell tells you the mail has arrived; you still have to take the letter out of the box.
 >

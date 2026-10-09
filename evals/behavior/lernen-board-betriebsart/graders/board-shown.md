@@ -1,5 +1,5 @@
 ---
 type: regex
-pattern: 'LERNPFAD[\s\S]*DELIVERABLE'
+pattern: '(LERNPFAD|PROJEKTPFAD)[\s\S]*(DELIVERABLE|BAUSTEINE)'
 target: last_message
 ---

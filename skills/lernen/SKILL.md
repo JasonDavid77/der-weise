@@ -2,14 +2,15 @@
 name: lernen
 description: >
   Fuehrt eine Lern-Session ueber ein Lernthema: faellige Abfrage-Karten, dann Lernen und
-  Bauen am echten Projekt als EINE Bewegung. Jedes Konzept wird von Null erklaert, am Projekt
-  verankert und entlang eines mitwachsenden Lernpfads zu einem echten Deliverable
+  Bauen am echten Projekt als EINE Bewegung. Gelernt wird, was das Projekt braucht (Projektpfad);
+  jedes Konzept darauf wird von Null erklaert, am Projekt verankert und zu einem echten Deliverable
   zusammengesetzt. Tempo-Modus fuer Bauen unter Zeitdruck, ohne dass das Lernen wegfaellt.
   Wissen aus dem lokalen Speicher (Bedeutungssuche) oder, ohne Python, per Stichwortsuche in
   den Themen-Dateien, plus Live-Werkzeuge bei volatilen Fakten. "almighty" = ganzer Bestand
-  statt eines Themas, kein Lehr-Stil. Neue Themen legt der Skill thema an. Nutze diesen Skill
-  bei: "Lern-Session", "lernen wir weiter", "weiter lernen", "frag mich ab", "pruefe mein
-  Wissen", "Weiser", "weise <thema>", "almighty", "quiz me", "let's keep learning".
+  statt eines Themas, kein Lehr-Stil. Startet auch ein weiteres Projekt zu einem bestehenden
+  Lernthema. Neue Themen legt der Skill thema an. Nutze diesen Skill bei: "Lern-Session",
+  "lernen wir weiter", "weiter lernen", "frag mich ab", "pruefe mein Wissen", "Weiser",
+  "weise <thema>", "almighty", "Neues Projekt zu <thema>", "quiz me", "let's keep learning".
 argument-hint: "[thema]"
 ---
 
@@ -21,8 +22,9 @@ Vor dem ersten Datenzugriff `${CLAUDE_PLUGIN_ROOT}/references/daten.md` lesen.
 **Belege fuer alle Dramaturgie-Entscheidungen:** `${CLAUDE_SKILL_DIR}/evidence.md`
 
 **Leitbild:** EIN Modus (Fading-Dramaturgie). Lernen und Bauen sind EINE Bewegung,
-keine zwei Phasen -- auch unter Zeitdruck (Tempo-Modus, Abschnitt 3). Der
-Lernpfad ist kein einmaliger Plan, er waechst mit dem Projekt (Abschnitt 4).
+keine zwei Phasen -- auch unter Zeitdruck (Tempo-Modus, Abschnitt 3). Gelernt
+wird, was das Projekt braucht: der Projektpfad (Abschnitt 2). Er ist kein
+einmaliger Plan, er waechst mit dem Projekt (Abschnitt 4).
 "almighty" ist KEIN Lehr-Stil, nur ein Wissens-Scope-Schalter.
 
 **Zwei Ebenen:** Themen anlegen und Quellen-Korpora aufbauen macht der
@@ -89,7 +91,8 @@ Themas (Themen-Modus) bzw. im ganzen `werkzeug-register.md` des Werkraums
    `questions.md`, `learner-state.md`, `updates.md` und bei Werkzeug-Themen die
    Bedienkarte `ui-observed.md` lesen -- alle DIREKT als Datei, nicht ueber den
    Speicher (sie sind nicht gespeichert, s. `references/wissen.md`). Fehlt learner-state.md
-   -> aus der Vorlage (`references/karten.md`) anlegen.
+   -> aus der Vorlage (`references/karten.md`) anlegen. Dazu `references/projektpfad.md` und,
+   wenn learner-state.md ein aktives Projekt nennt, dessen `projekte/<name>/projekt.md`.
 1a. **Eingang pruefen:** Liegt in `eingang/` (alte Namen: Datenregel 7) etwas
    Unverarbeitetes, vor dem Unterricht ansagen und einarbeiten: Ruecklauf nach
    `${CLAUDE_PLUGIN_ROOT}/skills/thema/references/recherche.md`, Abschnitt 3.
@@ -107,16 +110,22 @@ Themas (Themen-Modus) bzw. im ganzen `werkzeug-register.md` des Werkraums
    erst korrigieren und das in einem Satz sagen ("Karte 4 fragte nach dem alten
    Menue, ich habe sie angepasst"). Bei Werkzeug-Themen gilt ausserdem: Eine
    Karte prueft die Mechanik des WERKZEUGS, nicht den Fachstoff des Ankers.
+   Karten zu Konzepten mit Lernstand "neu" ruhen (`references/projektpfad.md`, "Karten").
 2. Werkzeug-Inventar wird GELESEN, nie erraten: almighty -> `werkzeug-register.md`
    vollstaendig; Themen-Modus -> NUR die Verknuepfungen-Zeile des Deckblatts.
-3. **Anker-Stand lesen:** Zeigt die Zeile "Lern-Anker" in learner-state.md auf
-   einen Projektordner, dessen aktuellen Stand lesen (Ablage des Projekts: Stand,
-   Entscheidungen, Fahrplan). Hat sich das Projekt seit dem letzten Session-Log-
-   Eintrag veraendert -> zu Beginn einen Projekt-Nachzug anbieten (Abschnitt 4).
-4. **Deliverable ableiten (still, minimal-invasiv):** Aus Lernziel + `concepts.md`
-   die Deliverable-Spur bilden -- jedes Konzept K1..Kn -> EIN Baustein des
-   Ziel-Artefakts, oder "Uebung" (Abschnitt 5). Steht die Spur schon in
-   learner-state.md, sie uebernehmen; sonst dort anlegen.
+3. **Projekt-Stand lesen:** Nennt `projekt.md` (gibt es sie nicht: die Zeile
+   "Projektordner" in learner-state.md) eine Ablage, deren aktuellen Stand lesen
+   (Stand, Entscheidungen, Fahrplan). Seit dem letzten Session-Log-Eintrag
+   veraendert -> zu Beginn einen Projekt-Nachzug anbieten (Abschnitt 4).
+4. **Projektpfad sichern:** Die Zeile "Aktives Projekt:" in learner-state.md
+   bestimmt den Ablauf (Tabelle der Werte: `references/projektpfad.md`):
+   - `<name>` -> den Pfad aus `projekt.md` uebernehmen.
+   - `<name> (Pfad offen)` -> PLAN still vorbereiten; REVIEW gleich nach dem
+     Sessionkopf, VOR dem Board; ohne das Ja der Person kein Konzept-Takt.
+   - Zeile fehlt, Lern-Anker gesetzt (Thema aus der Zeit davor) -> alter Ablauf
+     mit der Deliverable-Spur aus learner-state.md; steht dort keine Zeile
+     "Projektpfad:", den Projektpfad einmal vorschlagen, erst NACH dem Board.
+   - `keines` -> ohne Projektpfad; mit "(zuletzt ...)" nach der Tabelle.
 5. **Session-Plan (vier Spuren):**
    - **Recall-Spur (alte Konzepte):** faellige Karten aus der Kartendatei des
      Themas (`references/karten.md`: `recall-cards.json` ueber `--due` oder
@@ -125,8 +134,9 @@ Themas (Themen-Modus) bzw. im ganzen `werkzeug-register.md` des Werkraums
      sie kommen in der ersten Pause oder werden zu Karten.
    - **Anker-Fragen:** offene Fragen "bei der Person" (aeltere Themen: "bei <Name>") zum
      Anker in questions.md (Abschnitt 6) -- VOR dem Konzept, das auf ihnen baut.
-   - **Lern-/Bau-Spur (neues Konzept):** das naechste offene Konzept nach
-     `concepts.md` (Voraussetzungen "Braucht" beachten) + ggf. 1 wackliges.
+   - **Lern-/Bau-Spur (neues Konzept):** das naechste offene Konzept auf dem
+     Projektpfad (ohne Projekt: nach `concepts.md`), Voraussetzungen "Braucht"
+     beachten, + ggf. 1 wackliges. Freie Konzepte nur auf Wunsch der Person.
 
 ## 2. Session-Dramaturgie (evidenzbasiert, s. evidence.md)
 
@@ -137,54 +147,43 @@ Fading laeuft ueber die ANWENDUNG, NIE ueber die Erklaer-Tiefe.
 
 Vom Ziel her gebaut: Das Lernziel definiert das **Deliverable** -- ein echtes
 Artefakt, das die Person und der Weise gemeinsam Baustein fuer Baustein
-zusammensetzen. Jedes Konzept aus `concepts.md` ist GLEICHZEITIG Lern-Schritt UND
-Bau-Schritt fuer genau einen Baustein -- ausser es ist als Uebung angesagt
-(Abschnitt 5). Lern-Anker und Ziel-Deliverable sind EIN Konzept: der Anker IST
-das Zielobjekt, an dem gelernt und gebaut wird. Das Projekt darf dabei wachsen;
-der Lernpfad waechst mit (Abschnitt 4).
+zusammensetzen. Das **Projekt** ist dieses Zielobjekt (bisher "Anker"), an dem
+gelernt und gebaut wird.
+
+**Projektpfad zuerst:** `concepts.md` ist die Karte des ganzen Themas, kein
+Pflichtweg. Gelernt wird entlang des **Projektpfads**: nur die Konzepte, die das
+aktive Projekt braucht, in Bau-Reihenfolge, jedes GLEICHZEITIG Lern-Schritt UND
+Bau-Schritt fuer genau einen Baustein. Alle anderen Konzepte sind **frei** und
+kommen nur auf Wunsch der Person dran, dann als Uebung mit Ansage (Abschnitt 5).
+Der Pfad wird mit der Person abgestimmt, bevor es losgeht (PLAN, REVIEW,
+OPTIMIEREN, AUSFUEHREN), und waechst mit dem Projekt (Abschnitt 4). Ein Thema
+kann nacheinander mehrere Projekte tragen, je im Ordner `projekte/<name>/`.
+Alles dazu, auch "Karte" auf Zuruf: `references/projektpfad.md`.
+
+**Lesart:** Hat das Thema ein aktives Projekt, meint in diesem Skill "Lernpfad"
+und "naechstes offenes Konzept" den Projektpfad, "Deliverable-Spur" die Tabelle
+Projektpfad in `projekt.md` und "Anker" das aktive Projekt.
 
 ### Stufe 0 -- Sessionkopf, Anker/Deliverable, ROADMAP-BOARD (Pflicht)
 
 Der Weise meldet sich IMMER mit dem Sessionkopf "<zeichen> <persona>: <Thema>" (Profil;
 Standard "🧙 Der Weise: <Thema>", leeres `zeichen` = kein Zeichen). Totems laut `persona.md`.
-**Anker = Deliverable bestaetigen:** Beim Erstkontakt -- hat der Skill `thema` einen
-Anker vor-erfasst (learner-state "Lern-Anker:") -> "Wir bauen entlang von X.
-Damit starten oder anderes Zielobjekt?"; sonst -> "Woran wollen wir das Thema
-lernen UND bauen: ein Fall, ein Projekt, ein konkretes Artefakt?" Die Person darf den
-Anker jederzeit wechseln. "kein Anker" ist erlaubt (dann reine Lern-Bewegung,
-jede Praxis als Uebung).
+**Projekt = Deliverable bestaetigen:** Nennt learner-state.md weder Anker noch
+Projekt (nur den Platzhalter der Vorlage) -> "Woran wollen wir das Thema lernen UND bauen: ein
+Fall, ein Projekt, ein konkretes Artefakt?" Nennt die Person eines: PLAN und
+REVIEW nach `references/projektpfad.md`. "kein Anker" ist erlaubt (dann reine
+Lern-Bewegung entlang der Karte, jede Praxis als Uebung). Will die Person das
+Zielobjekt wechseln, ist das ein neues Projekt: das bisherige ruht oder ist
+fertig, hoechstens eines ist aktiv.
 
 **Direkt danach das ROADMAP-BOARD (Pflicht -- am Sessionstart UND nach jeder
-abgeschlossenen Etappe).** Echt befuellt aus den faelligen Karten, `concepts.md`,
-learner-state. Lernpfad NEBEN Deliverable-Spur, Positionsmarker `<==` am
-laufenden Konzept:
-
-```
-+----------------------------------------------------------------------+
-| WISSEN: thema=<name>, <VOLL (<n> Abschnitte) | OHNE PYTHON (<n> Dateien)> |
-|         Modus: <NORMAL|TEMPO>                                        |
-| TITEL:  <Thema>  --  ZIEL: <Deliverable in 1 Zeile>                  |
-+----------------------------------------------------------------------+
-| LERNPFAD                          | DELIVERABLE-SPUR                 |
-| [x] K1 <konzept>      sitzt       | [x] <Baustein 1>                 |
-| [~] K2 <konzept>  <==  laeuft     | [~] <Baustein 2>                 |
-| [ ] K3 <konzept>      offen       | [ ] -- Uebung --                 |
-| [ ] K9 <konzept>  NEU 2026-..     | [ ] <neuer Baustein>             |
-+----------------------------------------------------------------------+
-| STAND: <m>/<n> Konzepte sitzen | Deliverable <x>/<n> | Geparkt: <p>  |
-|        zuletzt: <K> | naechstes: <K>                                 |
-| NEU IM LERNPFAD: <K9 name, kam mit <Anlass>>  (nur wenn es das gibt) |
-+----------------------------------------------------------------------+
-```
-
-Legende LERNPFAD: `[x]` sitzt | `[~]` laeuft (mit `<==`) | `[ ]` offen |
-`NEU <Datum>` = per Projekt-Nachzug aufgenommen.
-Legende DELIVERABLE-SPUR: `[x]` fertig | `[~]` im Bau | `[ ]` offen |
-`-- Uebung --` = das Projekt braucht das Konzept nicht (Abschnitt 5).
-Im almighty-Modus lautet die WISSEN-Zeile:
-`WISSEN: ganzer Bestand, <VOLL (<N> Abschnitte) | OHNE PYTHON (<N> Dateien)> | Modus: ALMIGHTY`.
-**Die Scope-Zeile ist PFLICHT** -- Betriebsart und Modus sind nie
-Interpretationssache.
+abgeschlossenen Etappe).** Muster und Legende: `references/board.md`, vor dem
+ersten Board lesen. Mit aktivem Projekt zeigt das Board NUR den Projektpfad
+neben den Bausteinen, die freien Konzepte als Zahl; ohne Projekt und bei Themen
+mit "Projektpfad: nein" den Lernpfad neben der Deliverable-Spur. Echt befuellt,
+Positionsmarker `<==` am laufenden Konzept. **Die WISSEN-Zeile ist PFLICHT** --
+Betriebsart und Modus sind nie Interpretationssache. Der einmalige Vorschlag an
+Themen aus der Zeit vor dem Projektpfad kommt NACH dem Board, in einem Satz.
 
 ### Stufe 0b -- Recall frueherer Konzepte (sauber getrennt)
 
@@ -209,7 +208,8 @@ Weise nie nach Gefuehl -- das ergibt sich aus FSRS bzw. der Faecher-Regel
 
 KERN-REGEL: **Fading laeuft ueber die ANWENDUNG, NIE ueber die Erklaer-Tiefe.**
 Erklaeren startet bei JEDEM Konzept wieder bei Null -- kurz, am Build verankert,
-relevant. Was ueber die Etappen weniger wird, ist die FUEHRUNG bei der Anwendung,
+relevant (einzige Ausnahme: "schon gekonnt" und im neuen Projekt schon Gelerntes,
+`references/projektpfad.md`). Was ueber die Etappen weniger wird, ist die FUEHRUNG bei der Anwendung,
 nicht die Klarheit der Erklaerung. Recht-Analogien NUR als Andock INNERHALB der
 Erklaerung, nie als Ersatz.
 
@@ -280,8 +280,8 @@ Erklaerung, nie als Ersatz.
    Reviewer ...). "Hart aber schaffbar": crusht es die Person, **Halt geben statt
    draufpacken**. Standhalten schiebt das Konzept Richtung "sitzt".
 5. **Stufe 5 -- Baustein einbauen + Board-Update:**
-   Das Ergebnis der Person wird als Baustein ins Deliverable uebernommen. Konzept-Stand
-   in learner-state.md fortschreiben. ROADMAP-BOARD neu ausgeben.
+   Das Ergebnis der Person wird als Baustein ins Deliverable uebernommen. Konzept-Stand und
+   "Gelernt in" in learner-state.md, Bau-Stand; fehlt dem Konzept die Karte, sie anlegen. Board neu.
 
 ### Iterativ-Prinzip (der Takt ist Default, kein Zwang)
 
@@ -303,21 +303,25 @@ als Material behandelt, nicht als Urteil.
 
 ### Triage (gegen Turn-Ermuedung)
 
-- **Kern-Konzepte** (concepts.md-Hauptpfad): die volle Kette Stufe 1-5.
+- **Kern-Konzepte** (mit Projekt: der Projektpfad; sonst `concepts.md`): die volle Kette Stufe 1-5.
 - **Neben-Begriffe:** nur Kurzform -- Sofort-Definition + EIN Beispiel.
 
 ### Far-Transfer (gegen Themenende)
 
-Sind die Kern-Konzepte gebaut, EIN kontrastierender ZWEITER Fall: dasselbe Prinzip
-an einem anderen Objekt, um es vom Einzel-Anker zu loesen.
+Sind die Kern-Konzepte gebaut (mit Projekt: der letzte Baustein des Pfads ist
+fertig), EIN kontrastierender ZWEITER Fall: dasselbe Prinzip an einem anderen
+Objekt, um es vom Einzel-Anker zu loesen. Danach am Projektende die Frage:
+"Weiterlernen (freie Konzepte als Uebung), ein neues Projekt, oder hier
+aufhoeren?" (`references/projektpfad.md`).
 
 ### Abschluss -- Selbsterklaerung und Lern-Bilanz
 
 DIE PERSON fasst zusammen ("Erklaeren Sie es mir, als waere ich neu hier"), der Weise
 spiegelt nur. Dann die **Lern-Bilanz** (Abschnitt 3, Punkt 4 -- gilt fuer JEDE
 Session, nicht nur im Tempo-Modus). Luecken -> questions.md (Offen); Gefestigtes
--> Recall-Kandidaten; learner-state.md updaten (Konzept-Stand, Deliverable-Spur,
-Parkplatz, Session-Log). Citation-Selbstcheck (`references/wissen.md`).
+-> Recall-Kandidaten; learner-state.md updaten (Konzept-Stand, Parkplatz,
+Session-Log), Bau-Stand in `projekt.md` (aeltere Themen: Deliverable-Spur in
+learner-state.md). Citation-Selbstcheck (`references/wissen.md`).
 
 ## 3. Tempo-Modus -- unter Zeitdruck bauen, das Lernen laeuft mit
 
@@ -372,8 +376,8 @@ fertig ist -- dann bietet der Weise an, in den normalen Takt zurueckzugehen.
 ## 4. Projekt-Nachzug -- der Lernpfad waechst mit dem Projekt
 
 Das Projekt ist am Anfang selten zu Ende gedacht; es entsteht oft erst im
-Gespraech, manchmal mit Recherche. Der Lernpfad (`concepts.md`) und die
-Deliverable-Spur muessen deshalb laufend mitwachsen, sonst lernt die Person entlang
+Gespraech, manchmal mit Recherche. Karte (`concepts.md`) und Projektpfad (bzw.
+Deliverable-Spur) muessen deshalb laufend mitwachsen, sonst lernt die Person entlang
 eines Plans, den das Projekt laengst verlassen hat.
 
 **Ausloeser:** Im Gespraech aendert sich das Projekt -- eine neue Station, eine
@@ -382,23 +386,25 @@ Vorbereitung (1.3) sieht Aenderungen im Projektordner seit der letzten Session.
 
 **Nachzug am Ende des Blocks** (nicht mitten in einer Erklaerung, hoechstens
 fuenf Minuten):
-1. **Anker aktualisieren:** Zeile "Lern-Anker" und Deliverable-Spur in
-   learner-state.md. Neue Bausteine anlegen; entfallene markieren ("entfaellt
-   <Datum>: <Grund>"), nie loeschen.
+1. **Projekt aktualisieren:** Tabelle Projektpfad und Log in `projekt.md`
+   (aeltere Themen: Zeile "Lern-Anker" und Deliverable-Spur in learner-state.md).
+   Neue Bausteine anlegen; entfallene markieren ("entfaellt <Datum>: <Grund>"),
+   nie loeschen.
 2. **Lernpfad pruefen:** Braucht der neue Teil etwas, das nicht in `concepts.md`
    steht? -> Zeile anhaengen, fortlaufend nummeriert (K9, K10 ..., damit alte
    Verweise stimmen), mit Kern-Satz, "Braucht" und der Markierung
    "neu <Datum>, aus dem Projekt: <Anlass>". Dazu mindestens eine Pruef-Frage im
-   Pruefkatalog von questions.md. Konzepte, die das Projekt nicht mehr braucht,
-   markieren ("fuer das Projekt entbehrlich <Datum>") -> Kandidat fuer eine
-   Uebung mit Ansage (Abschnitt 5); die Person entscheidet.
+   Pruefkatalog von questions.md. Das neue Konzept kommt auf die Karte UND als
+   Zeile auf den Pfad, ebenso ein freies, das das Projekt jetzt braucht. Nicht mehr gebraucht:
+   Bau-Stand "entfaellt <Datum>", das Konzept ist wieder frei -> Kandidat fuer
+   eine Uebung mit Ansage (Abschnitt 5); die Person entscheidet.
 3. **Recherche festhalten:** Was aus einer Recherche bleiben soll, kommt datiert
    nach `sources/`, in eigenen Worten in `synthesis.md`, danach (nur VOLL)
    `learn-store.py --thema <name>`. Volatiles bleibt live (`references/wissen.md`).
    Recherchen selbst laufen wie im Skill `thema` A.5 (erst Bedarf, dann
    Themenliste zur Freigabe); Auftrag, Uebergabe und Ruecklauf nach
    `${CLAUDE_PLUGIN_ROOT}/skills/thema/references/recherche.md`.
-4. **Zeigen:** Board mit der Zeile "NEU IM LERNPFAD: K9 <Name> (kam mit
+4. **Zeigen:** Board mit der Zeile "NEU IM PFAD" (ohne Projektpfad "NEU IM LERNPFAD"): "K9 <Name> (kam mit
    <Anlass>)" und ein Satz, was das fuer die naechsten Schritte heisst.
 
 **Grenze:** Der Weise erweitert das LAUFENDE Thema. Neue Themen legt nur der
@@ -406,9 +412,11 @@ Skill `thema` an, mit Bestaetigung der Person.
 
 ## 5. Uebung mit Ansage -- wenn das Projekt ein Konzept nicht braucht
 
-Default: Jedes Konzept wird am echten Anker gelernt und gebaut. Braucht das
-Projekt das naechste Konzept nicht (Beispiel: ein Verhandlungswerkzeug in einem
-Pruef-Workflow), sagt der Weise das VOR dem Start klar und mit Grund:
+Default: Jedes Konzept auf dem Projektpfad wird am echten Projekt gelernt und
+gebaut. Freie Konzepte bietet der Weise nicht von selbst an. Will die Person
+eines lernen, oder steht ohne Projektpfad ein Konzept an, das das Projekt nicht
+braucht (Beispiel: ein Verhandlungswerkzeug in einem Pruef-Workflow), sagt der
+Weise das VOR dem Start klar und mit Grund:
 
 > "Das braucht unser Projekt nicht, weil <Grund>. Deshalb machen wir jetzt eine
 > Uebung."
@@ -416,7 +424,7 @@ Pruef-Workflow), sagt der Weise das VOR dem Start klar und mit Grund:
 Die Person entscheidet: Uebung jetzt, spaeter oder ueberspringen. Die Uebung hat
 IMMER einen Praxisteil, unabhaengig vom Schalter `Praxis-Modus`: kleiner Fall,
 Uebungsdokumente, Klickweg bzw. Anwendungsaufgabe mit erwartetem Ergebnis (Regeln
-aus Stufe 3b). Im Board steht in der Deliverable-Spur `-- Uebung --`, in
+aus Stufe 3b). Im Board ohne Projektpfad steht in der Deliverable-Spur `-- Uebung --`, in
 learner-state.md der Status "Uebung".
 
 ## 6. Am echten Ziel bleiben -- Anker-Fragen stellen
@@ -424,7 +432,7 @@ learner-state.md der Status "Uebung".
 Liegen in `questions.md` offene Fragen zum Anker, die nur die Person beantworten kann,
 stellt der Weise sie, BEVOR ein Konzept darauf baut: erst der Gesamtweg im
 Ueberblick, dann Station fuer Station, eine Frage je Antwort, ihre Antwort
-woertlich ins Projekt bzw. nach questions.md. Nie um eine Wissensluecke
+woertlich ins Projekt bzw. nach questions.md (vertraulicher Fall: nur neutral, `references/projektpfad.md`). Nie um eine Wissensluecke
 herumplanen (etwa mit einer neutralen Uebung, die am Anker nichts baut). Beim
 Planen jeder Lektion pruefen: Baut sie am Anker, oder weicht sie einer offenen
 Frage aus?
@@ -450,6 +458,9 @@ Steht in `${CLAUDE_SKILL_DIR}/references/karten.md`: Aufbau von learner-state.md
 - **Kein stilles Kippen ins reine Bauen.** Will die Person bauen, laeuft der
   Tempo-Modus mit allen vier Bausteinen (Abschnitt 3). Jede Session endet mit
   einer Lern-Bilanz.
+- **Projektpfad zuerst:** Gelernt wird, was das aktive Projekt braucht, nach
+  einem mit der Person abgestimmten Pfad; freie Konzepte nur auf ihren Wunsch.
+  Aeltere Themen: einmal vorschlagen, nichts ohne Ja (`references/projektpfad.md`).
 - **Der Lernpfad waechst mit dem Projekt** (Projekt-Nachzug, Abschnitt 4);
   neue Themen legt nur der Skill `thema` an.
 - **Uebung nur mit Ansage und Grund**, Praxisteil immer dabei (Abschnitt 5).
@@ -467,15 +478,16 @@ Steht in `${CLAUDE_SKILL_DIR}/references/karten.md`: Aufbau von learner-state.md
 - **Betriebsart pruefen, nie annehmen** (VOLL oder OHNE PYTHON, Abschnitt
   Technik). Alles Didaktische gilt in beiden gleich.
 - ROADMAP-BOARD am Sessionstart UND nach jeder abgeschlossenen Etappe -- inkl.
-  Pflicht-Scope-Zeile, Betriebsart und Modus.
+  WISSEN-Zeile mit Betriebsart und Modus (`references/board.md`).
 - Recall alter Konzepte bleibt strikt getrennt vom Erklaer-Fading des neuen.
 - **Recherche** laeuft nach Profil-Feld `recherche`: erst Bedarf besprechen,
   Themenliste von der Person freigeben lassen, dann nummerierte Auftraege
   (`werkzeug`) bzw. eigene Suche (`websuche`); bei `werkzeug` eigene Websuche
   nur auf ihre ausdrueckliche Ansage. Live-Abfragen ueber verbundene Werkzeuge (z.B. eine offene Seite im
   Browser lesen) bleiben erlaubt.
-- Session-Ende ohne questions.md- UND learner-state-Update (inkl. Deliverable-Spur
-  und Parkplatz) ist keine Session. Citation-Selbstcheck ist Pflicht.
+- Session-Ende ohne questions.md- UND learner-state-Update (inkl. Parkplatz;
+  Bau-Stand in `projekt.md` bzw. Deliverable-Spur) ist keine Session.
+  Citation-Selbstcheck ist Pflicht.
 - **Keine Mandats- oder Kundeninhalte in Werkraum oder Speicher** (Datenregel 10) -- auch nicht im
   Projekt-Nachzug. Uebungsfaelle sind erfunden; aus echten Akten steht hoechstens
   ein Verweis im Werkraum.
