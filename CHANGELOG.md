@@ -2,6 +2,21 @@
 
 Der Weise, von Jason Lau-Christen. Versionen nach dem Schema Hauptversion.Neuerung.Korrektur.
 
+## 4.3.0 (08.10.2026)
+
+- **Alle Pakete sehen und wählen:** `/weise:paket` zeigt immer eine Liste, auch bei nur einem Paket: installierte Pakete, Pakete aus Ihren bekannten Katalogen und Pakete aus Ordnern, je mit Zustand (eingespielt, bereit, nicht geladen). Danach wartet der Weise auf Ihre Wahl.
+- **Einspielen ohne Installation:** Liegt ein Paket im Repo seines Katalogs, reicht es, den Katalog hinzuzufügen. Der Weise liest und prüft es dort.
+- **Kennzeichen im Katalog:** Wissenspakete tragen im Katalog-Eintrag `"category": "weise-paket"`.
+- **Privater Katalog scheitert an der Anmeldung:** Der Weise prüft den Zugang und nennt den einen Befehl, mit dem Sie sich in Ihrem eigenen Fenster anmelden. Er meldet nie selbst an und fasst keine Schlüssel an.
+- **Deutlicher im Befehl:** Der Ordner hinter `/weise:paket` ist als „optional“ gekennzeichnet.
+
+Beruht auf zwei Dateien von Claude Code, deren Aufbau nicht dokumentiert ist (`installed_plugins.json`, `known_marketplaces.json`). Fehlen sie, zeigt der Weise, was er auf den übrigen Wegen findet.
+
+### Woran Sie es merken
+
+- `/weise:paket` beginnt mit einer Liste und einer Frage, auch wenn nur ein Paket da ist.
+- Pakete aus einem hinzugefügten Katalog stehen als „bereit“ in der Liste, ohne dass Sie sie installiert haben.
+
 ## 4.2.0 (08.10.2026)
 
 - **Recherche-Aufträge mit Nummer:** Jeder Auftrag heißt `R<n>-<Datum>-<Thema>.md`. Die Nummer läuft über das ganze Thema fort, das Datum zeigt den Stand.

@@ -50,11 +50,11 @@ You don't need to remember the commands. Phrases such as "new learning topic: â€
 
 A knowledge pack is ready-made learning material on one topic, for example the guides of a tool as text. It is a small plugin of its own without commands and holds only data: the texts and a list with one checksum per file. It contains no learning goal, no progress and no recall cards; those are created on your side. If a pack does bring commands, hooks or a server, Der Weise does not import it. Only install packs from catalogs you trust. The pack format is described in [docs/wissenspaket.md](docs/wissenspaket.md).
 
-1. Install the pack like any plugin, from the catalog that lists it.
-2. Run `/weise:paket`. Der Weise finds the installed packs, checks every file, asks for your learning goal and creates the topic in your topics folder, in FULL mode also in the store. If a pack is a folder (for example a Git clone), pass the folder: `/weise:paket <folder>`.
+1. Add the catalog that lists the pack (in the settings under "Plugins", enter the repository). You do not need to install the pack itself.
+2. Run `/weise:paket`. Der Weise shows every pack it can reach with its state (imported, ready, not loaded) and waits for your choice. Then it checks every file, asks for your learning goal and creates the topic in your topics folder, in FULL mode also in the store. If a pack is a folder (for example a Git clone), pass the folder: `/weise:paket <folder>`.
 3. When a new pack version arrives, run `/weise:paket` again. Der Weise replaces only the pack material in `sources/paket/` and archives the old state. Your learning goal, notes, cards and your own sources stay.
 
-Packs from a private catalog need read access to its repository. Claude Code cannot ask for a password while loading; the sign-in must already be stored in Git (easiest: clone the repository once yourself).
+Packs from a private catalog need read access to its repository, and the sign-in must be stored in Git before you add the catalog. If adding fails, tell Der Weise at `/weise:paket`: it checks the access and gives you the one command to sign in from your own window.
 
 ## An example
 
@@ -124,7 +124,7 @@ To switch to FULL later, run `/weise:einrichten` again. Your topics and recall c
 - **No hooks, no MCP server, no background service.** Der Weise runs only when you call it, by command or with a phrase like "let's keep learning".
 - **It changes Claude settings only after asking:** `/weise:einrichten` offers to add the folder `%USERPROFILE%\weise` (and your topics folder, if it lives elsewhere) as an additional working directory in `%USERPROFILE%\.claude\settings.json`, so Der Weise can read there without prompts. You see the change first. If it finds older copies of Der Weise under `%USERPROFILE%\.claude\skills`, it moves them to the backup folder after you agree. Nothing is deleted.
 - **Web search only if you choose it:** with the setting "websuche" Der Weise searches the web itself, and only after you have approved the topic list. With "werkzeug" it writes research prompts for your own research tool and only searches itself if you explicitly ask it to. The prompts are numbered (R1, R2, â€¦) and stored as files in the topic's `auftraege` folder; Der Weise opens that folder in your file manager and keeps an overview. You put each result under the same number into the `eingang` folder. At the start of the next session Der Weise works it into the topic's synthesis.
-- **Knowledge packs are only read:** `/weise:paket` reads the list of your installed plugins (`%USERPROFILE%\.claude\plugins\installed_plugins.json`, or else the plugin folder) and the folders of the knowledge packs, checks the files with PowerShell and copies them into your topics folder. On "new learning topic", `/weise:thema` looks in the same places for a matching installed pack. Der Weise writes nothing into plugin folders.
+- **Knowledge packs are only read:** `/weise:paket` reads the lists of your installed plugins and known catalogs (`installed_plugins.json` and `known_marketplaces.json` under `%USERPROFILE%\.claude\plugins`), the folders of catalogs and packs and your folder `%USERPROFILE%\weise\pakete`, checks the files with PowerShell and copies the chosen pack into your topics folder. On "new learning topic", `/weise:thema` looks in the same places for a matching pack. Der Weise writes nothing into plugin or catalog folders. If you ask it to check access to a private catalog, it contacts the server whose address you give once with `git ls-remote`; you sign in yourself.
 - **Proposals only after your approval:** `/weise:vorschlag` removes names, paths and confidential details, shows you the final text and asks how to submit it. If the GitHub command line `gh` is signed in on your computer, Der Weise can send the proposal directly after your approval; it first names the account the issue will appear under, and for that it asks github.com once for the account name. Otherwise it opens the prefilled form in your browser and you click submit yourself. You can also just save it. Der Weise never sets up an account or a sign-in. Issues on GitHub are public.
 - **The conversation itself** is processed by Claude like in any Claude Code session, including the files Der Weise reads for it. So keep confidential content out of your learning topics: no case files, client or customer data. Der Weise works with learning material, guides and invented practice cases.
 
@@ -145,7 +145,7 @@ Changes are listed in the [CHANGELOG](CHANGELOG.md) (German).
 /plugin marketplace remove jason-lau-christen
 ```
 
-Knowledge packs are plugins of their own and stay installed. Remove them with `/plugin uninstall <pack>@<catalog>`; imported topics stay in your topics folder.
+Catalogs with knowledge packs and installed packs stay in place. Remove them in the settings under "Plugins" or with `/plugin marketplace remove <catalog>`; imported topics stay in your topics folder.
 
 **Your data is kept.** Topics, profile and technology live in `%USERPROFILE%\weise` (or in the topics folder you chose), and Claude Code deletes nothing there. To remove everything:
 

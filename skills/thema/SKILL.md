@@ -63,7 +63,7 @@ THEMA: <thema> -- <Anlage | Arbeits-Session | Update>
 1. **Name klaeren:** kebab-case, Englisch (Ausnahme: Eigennamen). Vorschlagen,
    die Person bestaetigt. Vorher kurz pruefen, ob ein installiertes Wissenspaket
    zum Thema passt: `${CLAUDE_PLUGIN_ROOT}/skills/paket/SKILL.md` als Datei lesen,
-   Abschnitt 1, Schritte 2 bis 4. Passt eines: `/weise:paket` anbieten, der Stoff
+   Abschnitt 1, Schritte 2 bis 5. Passt eines: `/weise:paket` anbieten, der Stoff
    liegt dort schon vor (Datenregel 11). Nichts gefunden: still weiter.
 2. **Lernziel zuerst (Working Backwards):** "Was wollen Sie KOENNEN, wenn das
    Thema gefestigt ist?" -- 1-3 Punkte von der Person. Dabei auch fragen: "Gibt es

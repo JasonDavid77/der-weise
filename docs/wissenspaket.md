@@ -13,7 +13,7 @@ Ein Wissenspaket ist fertiges Lernmaterial für den Weisen (ab 4.1.0). Es ist ei
   README.md                    für Menschen: Inhalt, Stand, Herkunft, Nutzungshinweis
 ```
 
-Keine Befehle, keine Hooks, kein Server: Hat ein Paket `skills/`, `commands/`, `agents/`, `hooks/` oder `.mcp.json`, spielt der Weise es nicht ein.
+Keine Befehle, keine Hooks, kein Server: Hat ein Paket `skills/`, `commands/`, `agents/`, `hooks/`, `bin/`, `monitors/`, `.mcp.json`, `.lsp.json` oder `settings.json`, oder nennt seine `plugin.json` Hooks, Server oder Befehle, spielt der Weise es nicht ein.
 
 `sources/readme.md` wird nicht in den Speicher gelegt und nicht durchsucht. Der Weise liest es als Landkarte, um den Lernpfad zum Ziel der Person zu bauen.
 
@@ -48,4 +48,4 @@ Die Prüfsummen werden über die Dateien so berechnet, wie sie im Commit liegen.
 
 ## Ausliefern
 
-Ein Paket steht wie jedes Plugin in einem Katalog (`.claude-plugin/marketplace.json`). Für Lizenzmaterial gehört der Katalog in ein privates Repo; wer es nutzen will, braucht Lesezugriff, und die Anmeldung muss in Git gespeichert sein, bevor Claude Code den Katalog lädt. Ein Paket funktioniert auch ohne Katalog als Ordner: `/weise:paket <ordner>`.
+Ein Paket steht wie jedes Plugin in einem Katalog (`.claude-plugin/marketplace.json`). Sein Eintrag trägt `"category": "weise-paket"`, daran erkennt der Weise es; ein Feld `version` gehört nicht in den Eintrag, die Version steht in `plugin.json`. Liegt das Paket im selben Repo wie der Katalog (Quelle als relativer Pfad, etwa `./plugins/<paket>`), kann der Weise es schon lesen und einspielen, sobald der Katalog hinzugefügt ist. Für Lizenzmaterial gehört der Katalog in ein privates Repo; wer es nutzen will, braucht Lesezugriff, und die Anmeldung muss in Git gespeichert sein, bevor Claude Code den Katalog lädt. Ein Paket funktioniert auch ohne Katalog als Ordner: `/weise:paket <ordner>`.
