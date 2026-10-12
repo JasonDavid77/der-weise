@@ -2,6 +2,19 @@
 
 Der Weise, von Jason Lau-Christen. Versionen nach dem Schema Hauptversion.Neuerung.Korrektur.
 
+## 5.2.0 (Aktualisieren per Befehl, 12.10.2026)
+
+- **Neuer Befehl `/weise:aktualisieren`:** Der Weise holt die neueste Fassung von sich selbst und von Ihren installierten Wissenspaketen. Sie müssen dafür nichts mehr in ein Terminal tippen.
+- **Erst zeigen, dann fragen:** Der Weise nennt, welche Kataloge und Plugins betroffen sind, und beginnt erst nach Ihrem Ja. Am Ende steht je Plugin die alte und die neue Version.
+- **Nichts Fremdes:** Andere Plugins fasst der Befehl nicht an. Ihre Themen, Ihr Lernstand und Ihre Einstellungen bleiben, wie sie sind. Geht etwas nicht (kein Netz, Katalog gesperrt), zeigt der Weise die Meldung im Wortlaut und nennt den Weg von Hand.
+- **`/weise:paket` weist darauf hin:** Unter der Paketliste steht, wann der Katalog zuletzt aktualisiert wurde, und nach mehr als sieben Tagen der Satz, dass die Liste veraltet sein kann.
+
+### Woran Sie es merken
+
+- In der Befehlsliste steht `/weise:aktualisieren`.
+- Nach dem Befehl sehen Sie zuerst eine kurze Übersicht mit Versionen und die Frage, ob der Weise beginnen soll.
+- Nach dem Update bittet der Weise um eine neue Sitzung. Erst dann gilt die neue Fassung.
+
 ## 5.1.0 (Links zur Originalseite, 12.10.2026)
 
 - **Link hinter der Quelle:** Nennt ein Wissenspaket zu seinen Texten die Adresse der Originalseite, zeigt der Weise sie in der Zeile „Quellen“ hinter der Datei als Link. Sie prüfen eine Aussage mit einem Klick am Original und sehen dort den heutigen Stand.

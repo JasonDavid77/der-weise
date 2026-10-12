@@ -34,7 +34,7 @@ Der Weise arbeitet in der Claude-Desktop-App im Reiter „Code“ oder in Claude
 
    Der Weise fragt im Gespräch nach seinem Namen, nach der Anrede (Sie oder du), nach Zeichen und Totems, nach Ihrem Namen, nach Ihrem Weg für Recherchen und nach dem Ordner für Ihre Lernthemen. Hat Ihr eigener Agent schon einen Namen, schlägt er diesen vor: Aus „Max“ wird „Max der Weise“. Danach schlägt er den ersten Schritt vor, etwa „Neues Lernthema: …“.
 
-## Die fünf Skills
+## Die sechs Skills
 
 | Befehl | Was er tut |
 |---|---|
@@ -43,6 +43,7 @@ Der Weise arbeitet in der Claude-Desktop-App im Reiter „Code“ oder in Claude
 | `/weise:lernen` | Führt eine Lern-Session: erst fällige Abfrage-Karten, dann das nächste Konzept auf Ihrem Projektpfad, erklärt und gleich an Ihrem Projekt gebaut. |
 | `/weise:vorschlag` | Macht aus Ihrem Verbesserungswunsch einen Vorschlag und reicht ihn nach Ihrer Freigabe als öffentliches Issue ein. |
 | `/weise:paket` | Spielt ein Wissenspaket als Lernthema ein oder aktualisiert es (siehe unten); startet nur, wenn Sie den Befehl eingeben. |
+| `/weise:aktualisieren` | Holt die neueste Fassung des Weisen und Ihrer Wissenspakete; startet nur, wenn Sie den Befehl eingeben. |
 
 Sie müssen die Befehle nicht auswendig kennen. Sätze wie „Neues Lernthema: …“, „Lern-Session“, „lernen wir weiter“ oder „frag mich ab“ genügen.
 
@@ -135,7 +136,9 @@ Wechseln Sie später auf VOLL, rufen Sie `/weise:einrichten` erneut auf. Ihre Th
 
 ## Updates
 
-Claude Code aktualisiert Kataloge von Dritten standardmäßig nicht von selbst. So schalten Sie das für diesen Katalog einmal ein: `/plugin` eingeben, „Marketplaces“ wählen, dann `jason-lau-christen`, dann „Enable auto-update“. Neue Versionen kommen danach beim Start von Claude Code.
+Am einfachsten: `/weise:aktualisieren` eingeben. Der Weise zeigt, was er holen will, fragt einmal und aktualisiert dann den Katalog, sich selbst und Ihre installierten Wissenspakete. Danach starten Sie eine neue Sitzung. Ihre Themen und Ihr Lernstand bleiben, wie sie sind.
+
+Claude Code aktualisiert Kataloge von Dritten standardmäßig nicht von selbst. In Claude Code im Terminal schalten Sie das für diesen Katalog einmal ein: `/plugin` eingeben, „Marketplaces“ wählen, dann `jason-lau-christen`, dann „Enable auto-update“. Neue Versionen kommen danach beim Start von Claude Code.
 
 Von Hand: `/plugin` eingeben, unter „Installed“ den Weisen wählen, „Update now“, danach eine neue Sitzung starten. In der Desktop-App finden Sie Ihre Plugins außerdem über das Plus-Zeichen (+) unter „Plugins“.
 

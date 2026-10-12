@@ -34,7 +34,7 @@ Der Weise works in the Claude desktop app under the "Code" tab or in Claude Code
 
    Der Weise asks, in conversation, for its name, the form of address (formal "Sie" or informal "du" in German), signs and totems, your name, how you want research done and the folder for your learning topics. If your own agent already has a name, it suggests that one: "Max" becomes "Max der Weise". Then it suggests the first step, for example "New learning topic: …".
 
-## The five skills
+## The six skills
 
 | Command | What it does |
 |---|---|
@@ -43,6 +43,7 @@ Der Weise works in the Claude desktop app under the "Code" tab or in Claude Code
 | `/weise:lernen` | Runs a learning session: due recall cards first, then the next concept on your project path, explained and built right into your project. |
 | `/weise:vorschlag` | Turns your improvement idea into a proposal and, after your approval, submits it as a public issue. |
 | `/weise:paket` | Imports a knowledge pack as a learning topic or updates it (see below); runs only when you type the command. |
+| `/weise:aktualisieren` | Fetches the latest version of Der Weise and of your knowledge packs; runs only when you type the command. |
 
 You don't need to remember the commands. Phrases such as "new learning topic: …", "let's keep learning" or "quiz me" are enough.
 
@@ -137,7 +138,9 @@ To switch to FULL later, run `/weise:einrichten` again. Your topics and recall c
 
 ## Updates
 
-By default, Claude Code does not update third-party catalogs on its own. To turn this on once for this catalog: type `/plugin`, choose "Marketplaces", then `jason-lau-christen`, then "Enable auto-update". New versions then arrive when Claude Code starts.
+The easiest way: type `/weise:aktualisieren`. Der Weise shows what it is going to fetch, asks once and then updates the catalog, itself and your installed knowledge packs. Start a new session afterwards. Your topics and your learning state stay as they are.
+
+By default, Claude Code does not update third-party catalogs on its own. In Claude Code in the terminal you turn this on once for this catalog: type `/plugin`, choose "Marketplaces", then `jason-lau-christen`, then "Enable auto-update". New versions then arrive when Claude Code starts.
 
 Manually: type `/plugin`, pick Der Weise under "Installed", choose "Update now", then start a new session. In the desktop app you also find your plugins via the plus sign (+) under "Plugins".
 

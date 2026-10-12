@@ -21,6 +21,7 @@ Grundregel bei jedem Fehler: **Nichts umgehen.** Stoppt ein Schutzprogramm oder 
 | Die Befehle `/weise:…` erscheinen nicht | Die Sitzung lief schon vor der Installation | Neue Sitzung starten oder `/reload-plugins` eingeben |
 | Der Weise erscheint doppelt, oder es gibt zusätzlich Skills „weise“ oder „learn“ | Ältere Kopien liegen unter `%USERPROFILE%\.claude\skills` | `/weise:einrichten` aufrufen; es verschiebt die alten Kopien nach Ihrer Zustimmung in die Sicherung. Danach neue Sitzung. |
 | Der Weise weist auf `/weise:einrichten` hin | Profil `config.json` fehlt noch oder ist unvollständig | `/weise:einrichten` aufrufen. Bis dahin arbeitet der Weise mit Standardwerten. |
+| Eine neue Fassung des Weisen oder eines Wissenspakets ist da | Kataloge von Dritten aktualisiert Claude Code nicht von selbst | `/weise:aktualisieren` eingeben, danach eine neue Sitzung starten |
 | „Die Technik ist älter als das Plugin“ | Das Plugin wurde aktualisiert, die Technik noch nicht | Einmal `/weise:einrichten` aufrufen |
 | Rückfragen bei jedem Lesen im Themenordner | Der Themenordner liegt außerhalb Ihres Arbeitsordners | In `/weise:einrichten` die angebotene Freigabe annehmen; sie wirkt ab der nächsten Sitzung |
 | Das Board zeigt „OHNE PYTHON“, obwohl VOLL eingerichtet ist | Die Python-Umgebung fehlt unter `%USERPROFILE%\weise\venv`, oder `WEISE_HOME` zeigt woandershin | `/weise:einrichten` aufrufen |
