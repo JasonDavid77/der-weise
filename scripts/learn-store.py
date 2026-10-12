@@ -36,6 +36,9 @@ INGEST_FILES = ("synthesis.md",)
 INGEST_DIRS = ("sources",)
 EXCLUDE_NAMES = {"readme.md", "_index.md", "claude.md"}
 ARCHIVE_DIR = "_archive"
+PACK_MANIFEST = "paket.json"
+PACK_DIR = "sources/paket"
+URL_MAX = 500
 REGISTER_CATEGORY = "learn-register"
 BATCH = 1000
 
@@ -59,8 +62,30 @@ def collect_topic_files(topic_dir: Path) -> tuple[list[Path], list[Path]]:
     return files, skipped
 
 
+def load_urls(topic_dir: Path) -> dict[str, str]:
+    """Adresse der Originalseite je Paketdatei, aus <thema>/paket.json (Feld
+    "url" je Eintrag in "dateien", freiwillig). Schluessel: Pfad relativ zum
+    Thema, etwa "sources/paket/kapitel/seite.md". Nur https-Adressen ohne
+    Leerraum; ein fehlendes oder unlesbares Manifest ergibt eine leere Liste."""
+    try:
+        data = json.loads((topic_dir / PACK_MANIFEST).read_text(encoding="utf-8-sig"))
+        entries = data.get("dateien", [])
+    except Exception:
+        return {}
+    urls = {}
+    for e in entries if isinstance(entries, list) else []:
+        if not isinstance(e, dict):
+            continue
+        pfad, url = e.get("pfad"), e.get("url")
+        if (isinstance(pfad, str) and isinstance(url, str) and url.startswith("https://")
+                and len(url) <= URL_MAX and not re.search(r"\s", url)):
+            urls[f"{PACK_DIR}/{pfad}"] = url
+    return urls
+
+
 def build_chunks(files: list[Path], thema: str, root: Path):
     ids, docs, metas, longest = [], [], [], 0
+    urls = load_urls(root / thema)
     for f in files:
         text = f.read_text(encoding="utf-8-sig", errors="replace")
         rel_root = str(f.relative_to(root)).replace("\\", "/")
@@ -74,6 +99,8 @@ def build_chunks(files: list[Path], thema: str, root: Path):
                     "chunk_index": i, "tokens": n_tok}
             if stand:
                 meta["stand"] = stand.group(1)
+            if rel_topic in urls:
+                meta["url"] = urls[rel_topic]
             metas.append(meta)
             longest = max(longest, n_tok)
         print(f"  {rel_topic}: {len(pieces)} Abschnitte")

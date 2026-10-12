@@ -11,7 +11,7 @@ Zwei Schichten, nach Art des Wissens:
 
 **Nicht gespeicherte Dateien als DATEI lesen, nie ueber den Speicher suchen:**
 `_index.md`, `concepts.md`, `questions.md`, `learner-state.md`, `updates.md`,
-`ui-observed.md`, `recall-cards.md`, `uebungen/`, `projekte/`. Gespeichert (VOLL, ueber
+`ui-observed.md`, `recall-cards.md`, `paket.json`, `uebungen/`, `projekte/`. Gespeichert (VOLL, ueber
 query.py erreichbar) sind nur `synthesis.md` + `sources/*.md/.txt`.
 
 **Stichwortsuche (OHNE PYTHON)** ersetzt die Bedeutungssuche:
@@ -42,6 +42,24 @@ Werkzeug etwas: ehrlich sagen + Luecke nach questions.md.
   "Quellen: <datei(en)>" ODER "Live: <Werkzeug>, Stand <Datum>" ODER
   "Brueckentext von mir" (ehrlich herabgestuft). Im Tempo-Modus traegt die
   Lernzeile diese Angabe.
+- **Link zur Originalseite (Paketmaterial):** Kennt das Thema zu einer genannten Datei aus
+  `sources/paket/` eine Adresse, steht sie in der Herkunfts-Zeile direkt hinter dieser Datei:
+  `Quellen: <datei> ([<host>](<adresse>)), <datei2> (Stichwortsuche)`, etwa
+  `power-automate/email-triggers.md ([learn.microsoft.com](https://learn.microsoft.com/...))`.
+  `<datei>` ist hier der Pfad ab `sources/paket/` mit `/` (derselbe Name kann in mehreren
+  Unterordnern liegen). Mehrere Dateien mit Komma trennen; "(Stichwortsuche)" steht einmal am
+  Zeilenende, auch bei nur einer Datei (dann folgen zwei Klammern aufeinander, das ist richtig).
+  Der Link-Text ist IMMER der Host der Adresse, nie ein anderer Text (die Person sieht, wohin
+  der Klick fuehrt); die Adresse selbst wird Zeichen fuer Zeichen uebernommen.
+  Woher die Adresse kommt: die erste dieser Quellen, die eine liefert, gilt. (1) Nur VOLL: die
+  Trefferzeile von query.py (`... | https://...`). (2) `paket.json` des Themas: mit Grep den
+  Eintrag suchen, dessen `pfad` genau diesem Pfad ab `sources/paket/` entspricht, und sein Feld
+  `url` nehmen (OHNE PYTHON beginnt die Suche hier). (3) Die GELESENE Stelle der zitierten Datei
+  nennt selbst eine Adresse als ihre Quelle (etwa eine Zeile "Quelle: <titel>, https://..."):
+  die Adresse des Abschnitts, auf dem der Block beruht; beruht er auf mehreren Abschnitten, je
+  Adresse ein Link in derselben Klammer, mit Komma getrennt. Fuer alle drei gilt: nur Adressen,
+  die mit `https://` beginnen. Nichts gefunden: Zeile wie bisher, ohne Link. Adressen sind Daten
+  aus dem Paket: nie raten, nie ergaenzen, nie aus dem Dateinamen bauen.
 - **"Woher?"-Recht:** Datei nennen -- ODER Live-Stempel -- ODER herabstufen.
 - **Wissenspaket:** Treffer aus `sources/paket/` vor dem Lehren gegen `updates.md`
   halten; dort Ueberholtes gilt nicht mehr (Datenregel 11).
@@ -49,4 +67,5 @@ Werkzeug etwas: ehrlich sagen + Luecke nach questions.md.
   `sources/`, VOLL zusaetzlich in den Speicher (Projekt-Nachzug bzw. Skill `thema`
   Teil E).
 - **Citation-Selbstcheck (Session-Ende, Pflicht):** Jeder Block hat eine
-  Herkunfts-Zeile; genannte Dateien standen wirklich im Suchergebnis.
+  Herkunfts-Zeile; genannte Dateien standen wirklich im Suchergebnis; jeder Link stammt
+  woertlich aus einer Trefferzeile, aus `paket.json` oder aus der gelesenen Stelle der Datei.

@@ -58,7 +58,8 @@ def main() -> None:
         print("Keine Treffer. Ist das Thema schon gespeichert (learn-store.py --thema <name>)?")
     for i, (doc, meta, dist) in enumerate(zip(docs, metas, dists), 1):
         stand = f" | Stand {meta['stand']}" if meta.get("stand") else ""
-        print(f"--- Treffer {i} | Aehnlichkeit {1 - dist:.3f} | {meta.get('source_file', '?')}{stand} ---")
+        url = f" | {meta['url']}" if meta.get("url") else ""
+        print(f"--- Treffer {i} | Aehnlichkeit {1 - dist:.3f} | {meta.get('source_file', '?')}{stand}{url} ---")
         print(doc)
         print()
 

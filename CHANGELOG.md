@@ -2,6 +2,19 @@
 
 Der Weise, von Jason Lau-Christen. Versionen nach dem Schema Hauptversion.Neuerung.Korrektur.
 
+## 5.1.0 (Links zur Originalseite, 12.10.2026)
+
+- **Link hinter der Quelle:** Nennt ein Wissenspaket zu seinen Texten die Adresse der Originalseite, zeigt der Weise sie in der Zeile „Quellen“ hinter der Datei als Link. Sie prüfen eine Aussage mit einem Klick am Original und sehen dort den heutigen Stand.
+- **Sie sehen, wohin der Klick führt:** Der Link trägt immer den Namen der Zielseite, etwa `learn.microsoft.com`. Der Weise nimmt nur Adressen, die mit `https://` beginnen, und nur so, wie das Paket sie nennt.
+- **In beiden Betriebsarten:** Mit Speicher steht die Adresse beim Treffer. Ohne Python schlägt der Weise sie in der Dateiliste des Pakets im Themenordner nach.
+- **Für Paketbauer:** Das Paketformat hat ein freiwilliges Feld `url` je Datei. Pakete ohne das Feld laufen wie bisher.
+
+### Woran Sie es merken
+
+- Bei einem Thema aus einem Paket mit Adressen endet ein Lernblock so: `Quellen: seite.md (learn.microsoft.com)`, wobei der Name in der Klammer ein Link ist.
+- Bei Paketen ohne Adressen und bei eigenen Quellen bleibt die Zeile, wie sie war.
+- Nutzen Sie den Speicher, zeigt der Weise die Links sofort. Wenn Sie das Thema einmal neu speichern, stehen die Adressen auch direkt beim Suchtreffer.
+
 ## 5.0.0 (Projektpfad, 09.10.2026)
 
 - **Projektpfad zuerst:** Der Weise lehrt nicht mehr jedes Konzept eines Themas der Reihe nach. Die Konzeptliste ist jetzt die Karte des ganzen Themas. Gelernt wird entlang des Projektpfads: nur die Konzepte, die Ihr Projekt braucht, in der Reihenfolge des Baus.

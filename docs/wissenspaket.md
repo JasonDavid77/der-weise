@@ -34,7 +34,9 @@ UTF-8 ohne BOM.
 | `quelle` | woher das Material stammt |
 | `hinweis` | Nutzungshinweis (etwa Lizenz), wird der Person vor dem Einspielen gezeigt |
 | `anzahl` | Zahl der Einträge in `dateien` |
-| `dateien` | Liste mit `{ "pfad": "<relativ zu sources/, mit />", "sha256": "<64 Zeichen, klein>" }`, einschließlich `readme.md` |
+| `dateien` | Liste mit `{ "pfad": "<relativ zu sources/, mit />", "sha256": "<64 Zeichen, klein>" }`, einschließlich `readme.md`. Freiwillig je Eintrag: `"url": "<https-Adresse der Originalseite>"` (ab 5.1.0) |
+
+Hat ein Eintrag eine `url`, nennt der Weise sie in der Herkunfts-Zeile als Link, damit sich eine Aussage an der Originalseite nachprüfen lässt. Es zählen nur Adressen, die mit `https://` beginnen; alles andere übergeht er. Ältere Fassungen des Weisen ignorieren das Feld.
 
 ## Zeilenenden (Pflicht)
 

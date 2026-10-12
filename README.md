@@ -54,7 +54,8 @@ Ein Wissenspaket ist fertiges Lernmaterial zu einem Thema, zum Beispiel die Anle
 
 1. Den Katalog hinzufügen, in dem das Paket steht (in den Einstellungen unter „Plugins“ das Repo angeben). Das Paket selbst müssen Sie nicht installieren.
 2. `/weise:paket` aufrufen. Der Weise zeigt alle Pakete, die er erreicht, mit ihrem Zustand (eingespielt, bereit, nicht geladen) und wartet auf Ihre Wahl. Dann prüft er jede Datei, fragt nach Ihrem Lernziel und legt das Thema in Ihrem Themenordner an, bei VOLL auch im Speicher. Liegt ein Paket als Ordner vor (etwa als Git-Klon), geben Sie den Ordner an: `/weise:paket <ordner>`.
-3. Kommt eine neue Paketversion, rufen Sie `/weise:paket` wieder auf. Der Weise tauscht nur das Paketmaterial im Ordner `sources/paket/` und legt den alten Stand ins Archiv. Ihr Lernziel, Ihre Notizen, Ihre Karten und Ihre eigenen Quellen bleiben.
+3. Nennt ein Paket zu seinen Texten die Adresse der Originalseite, zeigt der Weise sie beim Lernen hinter der Quelle als Link. So prüfen Sie eine Aussage mit einem Klick am Original.
+4. Kommt eine neue Paketversion, rufen Sie `/weise:paket` wieder auf. Der Weise tauscht nur das Paketmaterial im Ordner `sources/paket/` und legt den alten Stand ins Archiv. Ihr Lernziel, Ihre Notizen, Ihre Karten und Ihre eigenen Quellen bleiben.
 
 Pakete aus einem privaten Katalog brauchen Lesezugriff auf dessen Repo, und die Anmeldung muss in Git gespeichert sein, bevor Sie den Katalog hinzufügen. Klappt das Hinzufügen nicht, sagen Sie es dem Weisen bei `/weise:paket`: Er prüft den Zugang und nennt Ihnen den einen Befehl, mit dem Sie sich in Ihrem eigenen Fenster anmelden.
 

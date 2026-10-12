@@ -54,7 +54,8 @@ A knowledge pack is ready-made learning material on one topic, for example the g
 
 1. Add the catalog that lists the pack (in the settings under "Plugins", enter the repository). You do not need to install the pack itself.
 2. Run `/weise:paket`. Der Weise shows every pack it can reach with its state (imported, ready, not loaded) and waits for your choice. Then it checks every file, asks for your learning goal and creates the topic in your topics folder, in FULL mode also in the store. If a pack is a folder (for example a Git clone), pass the folder: `/weise:paket <folder>`.
-3. When a new pack version arrives, run `/weise:paket` again. Der Weise replaces only the pack material in `sources/paket/` and archives the old state. Your learning goal, notes, cards and your own sources stay.
+3. If a pack names the address of the original page for its texts, Der Weise shows it as a link behind the source while you learn. One click lets you check a statement against the original.
+4. When a new pack version arrives, run `/weise:paket` again. Der Weise replaces only the pack material in `sources/paket/` and archives the old state. Your learning goal, notes, cards and your own sources stay.
 
 Packs from a private catalog need read access to its repository, and the sign-in must be stored in Git before you add the catalog. If adding fails, tell Der Weise at `/weise:paket`: it checks the access and gives you the one command to sign in from your own window.
 
